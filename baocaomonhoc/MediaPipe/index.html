@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="main.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
+        }
+      }
+    </script>
+    <title>Document</title>
+    <script  src="scripts.js"></script>
+  </head>
+  <body>
+    <script type="module">
+      import * as THREE from "three";
+      var xSpeed = 0.1;
+      var scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xffffff);
+      var camera = new THREE.PerspectiveCamera(
+        100,
+        window.innerWidth / window.innerHeight,
+        1,
+        10000
+      );
+      camera.position.z = 1000;
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.getElementById("cube").appendChild(renderer.domElement);
+      
+      // Torus Geometry
+      var geometry = new THREE.TorusGeometry(350, 150, 32, 100); // Radius, tube radius, radial segments, tubular segments
+      var material = new THREE.MeshBasicMaterial({
+        color: '#28A745',
+        wireframe: true,
+      });
+      var torus = new THREE.Mesh(geometry, material);
+      scene.add(torus);
+
+      function render() {
+        requestAnimationFrame(render);
+        if (window.direction == "right") {
+          torus.rotation.y += xSpeed;
+        } else if (window.direction == "left") {
+          torus.rotation.y -= xSpeed;
+        } else {
+        }
+        renderer.render(scene, camera);
+      }
+
+      render();
+    </script>
+
+    <section id="demos" class="invisible" style="display: flex;">
+      <div id="liveView" class="videoView">
+        <button id="webcamButton" class="mdc-button mdc-button--raised" style="background-color: #28A745;">
+          <span class="mdc-button__ripple"></span>
+          <span class="mdc-button__label">TURN ON WEBCAM</span>
+        </button>
+        <div style="position: relative">
+          <video
+            id="webcam"
+            style="position: abso"
+            autoplay
+            playsinline
+          ></video>
+          <canvas
+            class="output_canvas"
+            id="output_canvas"
+            style="position: absolute; left: 0px; top: 0px;"
+          ></canvas>
+        </div>
+      </div>
+      <div style="margin-left: -400px;margin-top: -200px;" id="cube"></div>
+    </section>
+  </body>
+</html>
