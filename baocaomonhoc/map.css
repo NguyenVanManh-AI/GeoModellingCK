@@ -1,0 +1,8 @@
+#map {
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    background-color: white;
+    left: 0px;
+    bottom: 0px;
+}
