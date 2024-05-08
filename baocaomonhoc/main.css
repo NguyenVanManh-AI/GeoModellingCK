@@ -45,7 +45,7 @@
 
 @font-face {
 	font-family: 'Roboto Mono';
-	src: local('Roboto Mono Medium'), local('RobotoMono-Medium'), url('../files/RobotoMono-Medium.woff2') format('woff2');
+	src: local('Roboto Mono Medium'), local('RobotoMono-Medium');
 	font-style: normal;
 	font-weight: 500;
 }

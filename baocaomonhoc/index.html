@@ -1,78 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>three.js webgl - light probe from cubeCamera</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="./main.css">
-        <script type="importmap">
-            {
-              "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
-                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
-              }
+
+<head>
+	<title>three.js webgl - light probe from cubeCamera</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="./main.css">
+	<link type="text/css" rel="stylesheet" href="./map.css">
+	<script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.module.js",
+                "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/"
             }
-          </script>
-	</head>
-	<body>
-		<script type="module">
-			import * as THREE from 'three';
-			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-			import { LightProbeHelper } from 'three/addons/helpers/LightProbeHelper.js';
-			import { LightProbeGenerator } from 'three/addons/lights/LightProbeGenerator.js';
-			let renderer, scene, camera, cubeCamera;
-			let lightProbe;
-			init();
-			function init() {
-				// renderer
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				document.body.appendChild( renderer.domElement );
-				// scene
-				scene = new THREE.Scene();
-				// camera
-				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
-				camera.position.set( 0, 0, 30 );
-				const cubeRenderTarget = new THREE.WebGLCubeRenderTarget( 256 );
-				cubeCamera = new THREE.CubeCamera( 1, 1000, cubeRenderTarget );
-				// controls
-				const controls = new OrbitControls( camera, renderer.domElement );
-				controls.addEventListener( 'change', render );
-				controls.minDistance = 10;
-				controls.maxDistance = 50;
-				controls.enablePan = false;
-				// probe
-				lightProbe = new THREE.LightProbe();
-				scene.add( lightProbe );
-				// envmap
-				const genCubeUrls = function ( prefix, postfix ) {
-					return [
-						prefix + 'px' + postfix, prefix + 'nx' + postfix,
-						prefix + 'py' + postfix, prefix + 'ny' + postfix,
-						prefix + 'pz' + postfix, prefix + 'nz' + postfix
-					];
-				};
-				const urls = genCubeUrls( 'textures/cube/pisa/', '.png' );
-				new THREE.CubeTextureLoader().load( urls, function ( cubeTexture ) {
-					scene.background = cubeTexture;
-					cubeCamera.update( renderer, scene );
-					lightProbe.copy( LightProbeGenerator.fromCubeRenderTarget( renderer, cubeRenderTarget ) );
-					scene.add( new LightProbeHelper( lightProbe, 5 ) );
-					render();
-				} );
-				// listener
-				window.addEventListener( 'resize', onWindowResize );
+        }
+    </script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+	<div id="map"></div>
+	<script type="module">
+		import * as THREE from 'three';
+		import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+		import { LightProbeHelper } from 'three/examples/jsm/helpers/LightProbeHelper.js';
+		import { LightProbeGenerator } from 'three/examples/jsm/lights/LightProbeGenerator.js';
+
+		let renderer, scene, camera, cubeCamera;
+		let lightProbe;
+		
+		// url 
+		const urlParams = new URLSearchParams(window.location.search);
+		let locationParam = urlParams.get('location');
+		if (!locationParam) {
+			urlParams.set('location', 'bachkhoa');
+			const newUrl = window.location.pathname + '?' + urlParams.toString();
+			window.location.href = newUrl;
+		} else {console.log("Tham số location đã tồn tại: ", locationParam);}
+		// url 
+
+		// map
+		var map = L.map('map').setView([16.054407, 108.202164], 12); // Set the initial view to Da Nang
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		var locations = [
+			{ path360: "mykhe", name: "Biển Mỹ Khê Đà Nẵng", coordinates: [16.0639056, 108.2466932] },
+			{ path360: "myan", name: "Biển Mỹ An Đà Nẵng", coordinates: [16.0515477,108.2455815] },
+			{ path360: "bachkhoa", name: "Đại học Bách Khoa Đà Nẵng", coordinates: [16.075017, 108.1532003] }
+		];
+
+		locations.forEach(function (location) {
+			const marker = L.marker(location.coordinates).addTo(map);
+			marker.bindPopup("<b>" + location.name + "</b>").openPopup();
+			marker.on('click', function () {
+				urlParams.set('location', location.path360);
+				const newUrl = window.location.pathname + '?' + urlParams.toString();
+				window.location.href = newUrl;
+			});
+		});
+		// map
+
+		// init
+		var foundLocation = locations.find(location => location.path360 === locationParam);
+		var marker = L.marker(foundLocation.coordinates).addTo(map);
+		marker.bindPopup("<b>" + foundLocation.name + "</b>").openPopup();
+		// init
+
+
+		function init(path360 = 'bachkhoa') {
+			// Remove previous scene if exists
+			if (scene) {
+				scene.remove(lightProbe);
+				scene = null;
 			}
-			function onWindowResize() {
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
+
+			// renderer
+			renderer = new THREE.WebGLRenderer({ antialias: true });
+			renderer.setPixelRatio(window.devicePixelRatio);
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+
+			// scene
+			scene = new THREE.Scene();
+
+			// camera
+			camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
+			camera.position.set(0, 0, 30);
+
+			const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(256);
+			cubeCamera = new THREE.CubeCamera(1, 1000, cubeRenderTarget);
+
+			// controls
+			const controls = new OrbitControls(camera, renderer.domElement);
+			controls.addEventListener('change', render);
+			controls.minDistance = 10;
+			controls.maxDistance = 50;
+			controls.enablePan = false;
+
+			// probe
+			lightProbe = new THREE.LightProbe();
+			scene.add(lightProbe);
+
+			// envmap
+			const genCubeUrls = function (prefix, postfix) {
+				return [
+					prefix + 'px' + postfix, prefix + 'nx' + postfix,
+					prefix + 'py' + postfix, prefix + 'ny' + postfix,
+					prefix + 'pz' + postfix, prefix + 'nz' + postfix
+				];
+			};
+			var urls = genCubeUrls('textures/cube/' + path360 + '/', '.png');
+			new THREE.CubeTextureLoader().load(urls, function (cubeTexture) {
+				scene.background = cubeTexture;
+				cubeCamera.update(renderer, scene);
+				lightProbe.copy(LightProbeGenerator.fromCubeRenderTarget(renderer, cubeRenderTarget));
+				scene.add(new LightProbeHelper(lightProbe, 5));
 				render();
-			}
-			function render() {
-				renderer.render( scene, camera );
-			}
-		</script>
-	</body>
+			});
+
+			// listener
+			window.addEventListener('resize', onWindowResize);
+		}
+
+		function onWindowResize() {
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			render();
+		}
+
+		function render() {
+			renderer.render(scene, camera);
+		}
+		init(locationParam);
+	</script>
+
+</body>
 </html>
