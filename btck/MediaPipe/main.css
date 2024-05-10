@@ -27,3 +27,11 @@
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
   }
+
+  #list_btn {
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
