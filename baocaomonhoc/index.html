@@ -45,12 +45,18 @@
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
-		var locations = [
-			{ path360: "mykhe", name: "Biển Mỹ Khê Đà Nẵng", coordinates: [16.0639056, 108.2466932] },
-			{ path360: "myan", name: "Biển Mỹ An Đà Nẵng", coordinates: [16.0515477,108.2455815] },
-			{ path360: "bachkhoa", name: "Đại học Bách Khoa Đà Nẵng", coordinates: [16.075017, 108.1532003] },
-			{ path360: "itfc", name: "Khu C Đại học Bách Khoa Đà Nẵng", coordinates: [16.074130, 108.152709] }
-		];
+        var locations = [
+            { path360: "mykhe", name: "Biển Mỹ Khê Đà Nẵng", coordinates: [16.0639056, 108.2466932] },
+            { path360: "myan", name: "Biển Mỹ An Đà Nẵng", coordinates: [16.0515477, 108.2455815] },
+            { path360: "bachkhoa", name: "Đại học Bách Khoa Đà Nẵng", coordinates: [16.075017, 108.1532003] },
+            { path360: "itfc", name: "Khu C Đại học Bách Khoa Đà Nẵng", coordinates: [16.074130, 108.152709] },
+            { path360: "earea", name: "Khu E Đại học Bách Khoa Đà Nẵng", coordinates: [16.075573, 108.153430] },
+            { path360: "bridge", name: "Cầu Hoa Giấy Đại học Bách Khoa Đà Nẵng", coordinates: [16.075405, 108.152413] },	
+            { path360: "fountain", name: "Đài phun nước Đại học Bách Khoa Đà Nẵng", coordinates: [16.075240, 108.152646] },	
+            { path360: "intersection2", name: "Giao lộ đối diện khu E Đại học Bách Khoa Đà Nẵng", coordinates: [16.074954, 108.153419] },	
+            { path360: "intersection1", name: "Giao lộ Đại học Bách Khoa Đà Nẵng", coordinates: [16.075782, 108.152839] },	
+            { path360: "itf", name: "Khoa Công nghệ thông tin Đại học Bách Khoa Đà Nẵng", coordinates: [16.074691, 108.152950] },	
+        ];
 
 		locations.forEach(function (location) {
 			const marker = L.marker(location.coordinates).addTo(map);
