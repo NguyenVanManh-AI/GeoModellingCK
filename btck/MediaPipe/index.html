@@ -23,7 +23,7 @@
     var movingTop = false;
     var movingBottom = false;
     var ySpeed = 0;
-    var actionRotate = true
+    var actionRotate = 'XN'
     var targetRotation = 0;
     var rotating = false;
     var scene = new THREE.Scene();
@@ -43,16 +43,44 @@
       requestAnimationFrame(animate);
 
       if (rotating) {
-        if (actionRotate == true) {
+        if (actionRotate == 'XC') {
+          torus.rotation.x += ySpeed;
+          if (torus.rotation.x >= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if (actionRotate == 'XN') {
+          torus.rotation.x -= ySpeed;
+          if (torus.rotation.x <= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if (actionRotate == 'YC') {
           torus.rotation.y += ySpeed;
           if (torus.rotation.y >= targetRotation) {
             rotating = false;
             ySpeed = 0;
           }
         }
-        if (actionRotate == false) {
+        if (actionRotate == 'YN') {
           torus.rotation.y -= ySpeed;
           if (torus.rotation.y <= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if (actionRotate == 'ZC') {
+          torus.rotation.z += ySpeed;
+          if (torus.rotation.z >= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if (actionRotate == 'ZN') {
+          torus.rotation.z -= ySpeed;
+          if (torus.rotation.z <= targetRotation) {
             rotating = false;
             ySpeed = 0;
           }
@@ -103,16 +131,43 @@
       }, 1000); // 1s
     });
 
-
-    document.getElementById("rotateButton").addEventListener("click", function () {
-      actionRotate = true;
+    document.getElementById("rotateXCButton").addEventListener("click", function () {
+      actionRotate = 'XC';
       rotating = true;
       targetRotation += Math.PI / 6;
       ySpeed = Math.PI / 180;
     });
 
-    document.getElementById("rotateReverseButton").addEventListener("click", function () {
-      actionRotate = false;
+    document.getElementById("rotateXNButton").addEventListener("click", function () {
+      actionRotate = 'XN';
+      rotating = true;
+      targetRotation -= Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    });
+
+    document.getElementById("rotateYCButton").addEventListener("click", function () {
+      actionRotate = 'YC';
+      rotating = true;
+      targetRotation += Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    });
+
+    document.getElementById("rotateYNButton").addEventListener("click", function () {
+      actionRotate = 'YN';
+      rotating = true;
+      targetRotation -= Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    });
+
+    document.getElementById("rotateZCButton").addEventListener("click", function () {
+      actionRotate = 'ZC';
+      rotating = true;
+      targetRotation += Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    });
+
+    document.getElementById("rotateZNButton").addEventListener("click", function () {
+      actionRotate = 'ZN';
       rotating = true;
       targetRotation -= Math.PI / 6;
       ySpeed = Math.PI / 180;
@@ -145,50 +200,64 @@
       animateScaleInternal();
     }
     // zoomIn and zoomOut
+
+    // moveFar
     var moveAmount = 50; // Lượng di chuyển mỗi lần click
 
-document.getElementById("moveFarOutButton").addEventListener("click", function () {
-  var currentZ = torus.position.z;
-  var targetZ = currentZ - moveAmount;
-  animatePosition(torus, currentZ, targetZ);
-});
+    document.getElementById("moveFarOutButton").addEventListener("click", function () {
+      var currentZ = torus.position.z;
+      var targetZ = currentZ - moveAmount;
+      animatePosition(torus, currentZ, targetZ);
+    });
 
-document.getElementById("moveFarInButton").addEventListener("click", function () {
-  var currentZ = torus.position.z;
-  var targetZ = currentZ + moveAmount;
-  animatePosition(torus, currentZ, targetZ);
-});
+    document.getElementById("moveFarInButton").addEventListener("click", function () {
+      var currentZ = torus.position.z;
+      var targetZ = currentZ + moveAmount;
+      animatePosition(torus, currentZ, targetZ);
+    });
 
-function animatePosition(object, currentZ, targetZ) {
-  var moveSpeed = 5; // Tốc độ di chuyển
-  var moveDiff = targetZ - currentZ;
+    function animatePosition(object, currentZ, targetZ) {
+      var moveSpeed = 5; // Tốc độ di chuyển
+      var moveDiff = targetZ - currentZ;
 
-  var animatePositionInternal = function () {
-    if ((currentZ < targetZ && object.position.z < targetZ) ||
-        (currentZ > targetZ && object.position.z > targetZ)) {
-      object.position.z += moveDiff * moveSpeed;
-      requestAnimationFrame(animatePositionInternal);
+      var animatePositionInternal = function () {
+        if ((currentZ < targetZ && object.position.z < targetZ) ||
+          (currentZ > targetZ && object.position.z > targetZ)) {
+          object.position.z += moveDiff * moveSpeed;
+          requestAnimationFrame(animatePositionInternal);
+        }
+      };
+
+      animatePositionInternal();
     }
-  };
+    // moveFar
 
-  animatePositionInternal();
-}
 
   </script>
   <section id="demos">
     <canvas class="output_canvas" id="output_canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
     <div id="cube"></div>
-    <div id="list_btn">
-      <button type="button" class="btn btn-outline-primary" id="rotateButton">Rotate</button>
-      <button type="button" class="btn btn-outline-primary" id="rotateReverseButton">Rotate Reverse</button>
-      <button type="button" class="btn btn-outline-primary" id="moveLeftButton">Move Left</button>
-      <button type="button" class="btn btn-outline-primary" id="moveRightButton">Move Right</button>
-      <button type="button" class="btn btn-outline-primary" id="moveTopButton">Move Top</button>
-      <button type="button" class="btn btn-outline-primary" id="moveBottomButton">Move Bottom</button>
-      <button type="button" class="btn btn-outline-primary" id="zoomInButton">zoomInButton</button>
-      <button type="button" class="btn btn-outline-primary" id="zoomOutButton">zoomOutButton</button>
-      <button type="button" class="btn btn-outline-primary" id="moveFarOutButton">moveFarOutButton</button>
-      <button type="button" class="btn btn-outline-primary" id="moveFarInButton">moveFarInButton</button>
+    <div id="list_btn" class="d-flex justify-content-end">
+      <div>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveLeftButton">Move Left</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveRightButton">Move Right</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveTopButton">Move Top</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveBottomButton">Move Bottom</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="zoomInButton">zoomInButton</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="zoomOutButton">zoomOutButton</button>
+      </div>
+      <div>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateXCButton">rotate XC</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateXNButton">rotate XN</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateYCButton">rotate YC</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateYNButton">rotate YN</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateZCButton">rotate ZC</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateZNButton">rotate ZN</button>
+      </div>
+      <div>
+        <button type="button" class="m-1 btn btn-outline-info" id="moveFarOutButton">moveFarOutButton</button>
+        <button type="button" class="m-1 btn btn-outline-info" id="moveFarInButton">moveFarInButton</button>
+      </div>
     </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

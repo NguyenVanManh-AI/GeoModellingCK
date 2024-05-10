@@ -35,3 +35,7 @@
     top: 0px;
     right: 0px;
   }
+
+  .btn {
+    font-weight: bold !important;
+  }
