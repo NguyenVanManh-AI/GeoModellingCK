@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,82 +7,125 @@
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
   <script type="importmap">
-      {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
-        }
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
       }
-    </script>
+    }
+  </script>
   <title>Document</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
-    #cube {
-      max-width: 100%;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    section {
-      opacity: 1;
-      transition: opacity 500ms ease-in-out;
-    }
-
-    .canvas {
-      z-index: 1;
-      position: absolute;
-      pointer-events: none;
-    }
-
-    .output_canvas {
-      transform: rotateY(180deg);
-      -webkit-transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-    }
-  </style>
+  <link rel="stylesheet" href="main.css" />
 </head>
-
 <body>
   <script type="module">
     import * as THREE from "three";
-    var xSpeed = 0.1;
+    var ySpeed = 0; 
+    var actionRotate = true
+    var targetRotation = 0;
+    var rotating = false;
+    var moveLeft = 0;
+    var moveRight = 0; 
+    var moveTop = 0; 
+    var moveBottom = 0; 
     var scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
-    var camera = new THREE.PerspectiveCamera(
-      100,
-      window.innerWidth / window.innerHeight,
-      1,
-      10000
-    );
+  
+    var camera = new THREE.PerspectiveCamera(100,window.innerWidth / window.innerHeight,1,10000);
     camera.position.z = 1000;
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.getElementById("cube").appendChild(renderer.domElement);
-
-    // Torus Geometry
-    var geometry = new THREE.TorusGeometry(350, 150, 32, 100); // Radius, tube radius, radial segments, tubular segments
-    var material = new THREE.MeshBasicMaterial({
-      color: '#28A745',
-      wireframe: true,
-    });
+    var geometry = new THREE.TorusGeometry(350, 150, 32, 100);
+    var material = new THREE.MeshBasicMaterial({color: '#28A745',wireframe: true,});
     var torus = new THREE.Mesh(geometry, material);
     scene.add(torus);
+  
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      if (rotating) {
+        if(actionRotate == true) {
+          torus.rotation.y += ySpeed; 
+          if (torus.rotation.y >= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if(actionRotate == false) {
+          torus.rotation.y -= ySpeed; 
+          if (torus.rotation.y <= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
 
-    function render() {
-      requestAnimationFrame(render);
+      }
+      
+      if (moveLeft > 0) {
+        torus.position.x -= 10;
+        moveLeft -= 10;
+      }
+      
+      if (moveRight > 0) {
+        torus.position.x += 10;
+        moveRight -= 10;
+      }
+      
+      if (moveTop > 0) {
+        torus.position.y += 10;
+        moveTop -= 10;
+      }
+      
+      if (moveBottom > 0) {
+        torus.position.y -= 10;
+        moveBottom -= 10;
+      }
+
       renderer.render(scene, camera);
     }
-    render();
+    animate();
+  
+    document.getElementById("rotateButton").addEventListener("click", function() {
+      actionRotate = true;
+      rotating = true;
+      targetRotation += Math.PI / 6; 
+      ySpeed = Math.PI / 180; 
+    });
+
+    document.getElementById("rotateReverseButton").addEventListener("click", function() {
+      actionRotate = false;
+      rotating = true;
+      targetRotation -= Math.PI / 6; 
+      ySpeed = Math.PI / 180; 
+    });
+
+    document.getElementById("moveLeftButton").addEventListener("click", function() {
+      moveLeft += 30; 
+    });
+  
+    document.getElementById("moveRightButton").addEventListener("click", function() {
+      moveRight += 30; 
+    });
+  
+    document.getElementById("moveTopButton").addEventListener("click", function() {
+      moveTop += 30; 
+    });
+  
+    document.getElementById("moveBottomButton").addEventListener("click", function() {
+      moveBottom += 30; 
+    });
+  
   </script>
-  <section id="demos" style="display: flex;">
+  <section id="demos">
     <canvas class="output_canvas" id="output_canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
     <div id="cube"></div>
+    <button id="rotateButton">Rotate</button>
+    <button id="rotateReverseButton">Rotate Reverse</button> <!-- Added rotate reverse button -->
+    <button id="moveLeftButton">Move Left</button> 
+    <button id="moveRightButton">Move Right</button> 
+    <button id="moveTopButton">Move Top</button> 
+    <button id="moveBottomButton">Move Bottom</button> 
   </section>
 </body>
-
 </html>

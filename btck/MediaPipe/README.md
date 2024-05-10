@@ -1,0 +1,1 @@
+- Ở đây  đang là di chuyển vật thể , còn góc nhìn camera là đứng yên (nên kể cả di chuyển trái và phải thì nó cũng thay đổi)
