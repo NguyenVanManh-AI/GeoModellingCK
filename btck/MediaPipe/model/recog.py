@@ -126,7 +126,7 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
                     else:
                         texts.append(sentence[-1])
                     # ghi texts[-1] vào dòng tiếp theo của file txt
-                    with open('action.txt', 'a') as f:
+                    with open('actions.txt', 'a') as f:
                         f.write(texts[-1] + '\n')
                     if len(texts) > 3:
                         texts = texts[-3:]

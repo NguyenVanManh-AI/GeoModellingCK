@@ -103,88 +103,117 @@
     }
     animate();
 
-    document.getElementById("moveLeftButton").addEventListener("click", function () {
-      movingLeft = true;
-      setTimeout(function () {
-        movingLeft = false;
-      }, 1000); // 1s
-    });
+    function moveLeft() {
+  movingLeft = true;
+  setTimeout(function () {
+    movingLeft = false;
+  }, 1000); // 1s
+}
 
-    document.getElementById("moveRightButton").addEventListener("click", function () {
-      movingRight = true;
-      setTimeout(function () {
-        movingRight = false;
-      }, 1000); // 1s
-    });
+function moveRight() {
+  movingRight = true;
+  setTimeout(function () {
+    movingRight = false;
+  }, 1000); // 1s
+}
 
-    document.getElementById("moveTopButton").addEventListener("click", function () {
-      movingTop = true;
-      setTimeout(function () {
-        movingTop = false;
-      }, 1000); // 1s
-    });
+document.getElementById("moveLeftButton").addEventListener("click", moveLeft);
+document.getElementById("moveRightButton").addEventListener("click", moveRight);
 
-    document.getElementById("moveBottomButton").addEventListener("click", function () {
-      movingBottom = true;
-      setTimeout(function () {
-        movingBottom = false;
-      }, 1000); // 1s
-    });
 
-    document.getElementById("rotateXCButton").addEventListener("click", function () {
-      actionRotate = 'XC';
+function moveTop() {
+  movingTop = true;
+  setTimeout(function () {
+    movingTop = false;
+  }, 1000); // 1s
+}
+
+function moveBottom() {
+  movingBottom = true;
+  setTimeout(function () {
+    movingBottom = false;
+  }, 1000); // 1s
+}
+
+document.getElementById("moveTopButton").addEventListener("click", moveTop);
+document.getElementById("moveBottomButton").addEventListener("click", moveBottom);
+
+
+function rotateXC() {
+  actionRotate = 'XC';
       rotating = true;
       targetRotation += Math.PI / 6;
       ySpeed = Math.PI / 180;
-    });
+}
 
-    document.getElementById("rotateXNButton").addEventListener("click", function () {
-      actionRotate = 'XN';
+function rotateXN() {
+  actionRotate = 'XN';
       rotating = true;
       targetRotation -= Math.PI / 6;
       ySpeed = Math.PI / 180;
-    });
+}
 
-    document.getElementById("rotateYCButton").addEventListener("click", function () {
-      actionRotate = 'YC';
+function rotateYC() {
+  actionRotate = 'YC';
       rotating = true;
       targetRotation += Math.PI / 6;
       ySpeed = Math.PI / 180;
-    });
+}
 
-    document.getElementById("rotateYNButton").addEventListener("click", function () {
-      actionRotate = 'YN';
+
+function rotateYN() {
+  actionRotate = 'YN';
       rotating = true;
       targetRotation -= Math.PI / 6;
       ySpeed = Math.PI / 180;
-    });
+}
 
-    document.getElementById("rotateZCButton").addEventListener("click", function () {
-      actionRotate = 'ZC';
+
+
+function rotateZC() {
+  actionRotate = 'ZC';
       rotating = true;
       targetRotation += Math.PI / 6;
       ySpeed = Math.PI / 180;
-    });
+}
 
-    document.getElementById("rotateZNButton").addEventListener("click", function () {
-      actionRotate = 'ZN';
+
+
+function rotateZN() {
+  actionRotate = 'ZN';
       rotating = true;
       targetRotation -= Math.PI / 6;
       ySpeed = Math.PI / 180;
-    });
+}
+
+
+    document.getElementById("rotateXCButton").addEventListener("click", rotateXC);
+
+    document.getElementById("rotateXNButton").addEventListener("click", rotateXN);
+
+    document.getElementById("rotateYCButton").addEventListener("click", rotateYC);
+
+    document.getElementById("rotateYNButton").addEventListener("click", rotateYN);
+
+    document.getElementById("rotateZCButton").addEventListener("click", rotateZC);
+
+    document.getElementById("rotateZNButton").addEventListener("click", rotateZN);
 
     // zoomIn and zoomOut
     var zoomAmount = 0.6; // Lượng zoom mỗi lần click
-    document.getElementById("zoomInButton").addEventListener("click", function () {
+    function zoomIn() {
       var currentScale = torus.scale.x;
       var targetScale = currentScale + zoomAmount;
       animateScale(torus, currentScale, targetScale);
-    });
-    document.getElementById("zoomOutButton").addEventListener("click", function () {
-      var currentScale = torus.scale.x;
+}
+function zoomOut() {
+  var currentScale = torus.scale.x;
       var targetScale = currentScale - zoomAmount;
       animateScale(torus, currentScale, targetScale);
-    });
+}
+    document.getElementById("zoomInButton").addEventListener("click", zoomIn);
+    document.getElementById("zoomOutButton").addEventListener("click", zoomOut);
+
     function animateScale(object, currentScale, targetScale) {
       var scaleSpeed = 0.03; // Tốc độ thay đổi scale
       var animateScaleInternal = function () {
@@ -204,17 +233,21 @@
     // moveFar
     var moveAmount = 50; // Lượng di chuyển mỗi lần click
 
-    document.getElementById("moveFarOutButton").addEventListener("click", function () {
+    function moveFar() {
       var currentZ = torus.position.z;
       var targetZ = currentZ - moveAmount;
       animatePosition(torus, currentZ, targetZ);
-    });
+}
 
-    document.getElementById("moveFarInButton").addEventListener("click", function () {
-      var currentZ = torus.position.z;
+function moveNear() {
+  var currentZ = torus.position.z;
       var targetZ = currentZ + moveAmount;
       animatePosition(torus, currentZ, targetZ);
-    });
+}
+
+
+    document.getElementById("moveFarButton").addEventListener("click", moveFar);
+    document.getElementById("moveNearButton").addEventListener("click", moveNear);
 
     function animatePosition(object, currentZ, targetZ) {
       var moveSpeed = 5; // Tốc độ di chuyển
@@ -232,6 +265,63 @@
     }
     // moveFar
 
+// socket
+const socket = new WebSocket('ws://localhost:8765');
+
+socket.addEventListener('message', function (event) {
+    document.getElementById('random-value').innerText = event.data;
+    // Xử lý các giá trị event.data và gọi các hàm tương ứng
+    switch (event.data) {
+        case 'moveLeft':
+            moveLeft();
+            break;
+        case 'moveRight':
+            moveRight();
+            break;
+        case 'moveTop':
+            moveTop();
+            break;
+        case 'moveBottom':
+            moveBottom();
+            break;
+        case 'rotateXC':
+            rotateXC();
+            break;
+        case 'rotateXN':
+            rotateXN();
+            break;
+        case 'rotateYC':
+            rotateYC();
+            break;
+        case 'rotateYN':
+            rotateYN();
+            break;
+        case 'rotateZC':
+            rotateZC();
+            break;
+        case 'rotateZN':
+            rotateZN();
+            break;
+            
+        case 'zoomOut':
+            zoomOut();
+            break;
+        case 'zoomIn':
+            zoomIn();
+            break;
+
+        case 'moveFar':
+            moveFar();
+            break;
+        case 'moveNear':
+            moveNear();
+            break;
+        default:
+            // Xử lý giá trị không khớp nếu cần
+            break;
+    }
+});
+
 
   </script>
   <section id="demos">
@@ -243,8 +333,8 @@
         <button type="button" class="m-1 btn btn-outline-primary" id="moveRightButton">Move Right</button>
         <button type="button" class="m-1 btn btn-outline-primary" id="moveTopButton">Move Top</button>
         <button type="button" class="m-1 btn btn-outline-primary" id="moveBottomButton">Move Bottom</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="zoomInButton">zoomInButton</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="zoomOutButton">zoomOutButton</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="zoomInButton">zoomIn</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="zoomOutButton">zoomOut</button>
       </div>
       <div>
         <button type="button" class="m-1 btn btn-outline-success" id="rotateXCButton">rotate XC</button>
@@ -255,9 +345,10 @@
         <button type="button" class="m-1 btn btn-outline-success" id="rotateZNButton">rotate ZN</button>
       </div>
       <div>
-        <button type="button" class="m-1 btn btn-outline-info" id="moveFarOutButton">moveFarOutButton</button>
-        <button type="button" class="m-1 btn btn-outline-info" id="moveFarInButton">moveFarInButton</button>
+        <button type="button" class="m-1 btn btn-outline-info" id="moveFarButton">moveFar</button>
+        <button type="button" class="m-1 btn btn-outline-info" id="moveNearButton">moveNear</button>
       </div>
+      <div class="col-2 " id="random-value"></div>
     </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
