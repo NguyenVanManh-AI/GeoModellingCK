@@ -203,12 +203,12 @@ function rotateZN() {
     var zoomAmount = 0.6; // Lượng zoom mỗi lần click
     function zoomIn() {
       var currentScale = torus.scale.x;
-      var targetScale = currentScale + zoomAmount;
+      var targetScale = currentScale - zoomAmount;
       animateScale(torus, currentScale, targetScale);
 }
 function zoomOut() {
   var currentScale = torus.scale.x;
-      var targetScale = currentScale - zoomAmount;
+      var targetScale = currentScale + zoomAmount;
       animateScale(torus, currentScale, targetScale);
 }
     document.getElementById("zoomInButton").addEventListener("click", zoomIn);
@@ -307,6 +307,7 @@ socket.addEventListener('message', function (event) {
         case 'zoomOut':
             zoomOut();
             break;
+
         case 'zoomIn':
             zoomIn();
             break;
