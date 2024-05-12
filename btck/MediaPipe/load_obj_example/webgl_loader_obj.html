@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>three.js webgl - loaders - OBJ loader</title>
 	<meta charset="utf-8">
@@ -7,56 +8,40 @@
 	<style>
 		body {
 			font-family: Monospace;
-			background-color: #000;
 			color: #fff;
 			margin: 0px;
-			overflow: hidden;
 		}
 
-		#info {
-			color: #fff;
-			position: absolute;
-			top: 10px;
+		#cube {
+			max-width: 100%;
 			width: 100%;
-			text-align: center;
-			z-index: 100;
-			display: block;
-		}
-		#info a,
-		.button {
-			color: #f00;
-			font-weight: bold;
-			text-decoration: underline;
-			cursor: pointer
+			height: 100%;
 		}
 	</style>
 </head>
 
 <body>
-	<div id="info">
-		<a href="http://threejs.org" target="_blank">three.js</a> - OBJLoader test
-	</div>
+	<div id="cube"></div>
 	<script src="three.min.js"></script>
 	<script src="OBJLoader.js"></script>
 	<script src="Detector.js"></script>
 	<script src="stats.min.js"></script>
-	<script>
-		var container, stats;
-		var camera, scene, renderer;
-		var mouseX = 0, mouseY = 0;
-		var windowHalfX = window.innerWidth / 2;
-		var windowHalfY = window.innerHeight / 2;
+	<script type="module">
+var container;
+var camera, scene, renderer;
+var rotating = false;
+var actionRotate = 'XN';
+var targetRotation = 0;
+var ySpeed = 0;
+
+var loadedObject; 
 		init();
 		animate();
 		function init() {
-			container = document.createElement('div');
-			document.body.appendChild(container);
-			camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-			camera.position.z = 100;
+			camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 10000);
+			camera.position.z = 200;
 			// scene
 			scene = new THREE.Scene();
-			var ambient = new THREE.AmbientLight(0x101030);
-			scene.add(ambient);
 			var directionalLight = new THREE.DirectionalLight(0xffeedd);
 			directionalLight.position.set(0, 0, 1).normalize();
 			scene.add(directionalLight);
@@ -72,43 +57,173 @@
 			var loader = new THREE.OBJLoader();
 			loader.addEventListener('load', function (event) {
 				var object = event.content;
+				loadedObject = object; // Lưu đối tượng đã load vào biến global
 				for (var i = 0, l = object.children.length; i < l; i++) {
 					object.children[i].material.map = texture;
 				}
-				object.position.y = - 80;
 				scene.add(object);
 			});
-			loader.load('male02.obj');
+			loader.load('../obj/cone.obj');
 			//
 			renderer = new THREE.WebGLRenderer();
 			renderer.setSize(window.innerWidth, window.innerHeight);
-			container.appendChild(renderer.domElement);
-			document.addEventListener('mousemove', onDocumentMouseMove, false);
-			//
-			window.addEventListener('resize', onWindowResize, false);
+			document.getElementById("cube").appendChild(renderer.domElement);
 		}
-		function onWindowResize() {
-			windowHalfX = window.innerWidth / 2;
-			windowHalfY = window.innerHeight / 2;
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-			renderer.setSize(window.innerWidth, window.innerHeight);
-		}
-		function onDocumentMouseMove(event) {
-			mouseX = (event.clientX - windowHalfX) / 2;
-			mouseY = (event.clientY - windowHalfY) / 2;
-		}
-		//
 		function animate() {
 			requestAnimationFrame(animate);
-			render();
-		}
-		function render() {
-			camera.position.x += (mouseX - camera.position.x) * .05;
-			camera.position.y += (- mouseY - camera.position.y) * .05;
-			camera.lookAt(scene.position);
+			if (rotating) {
+        if (actionRotate == 'XC') {
+          loadedObject.rotation.x += ySpeed;
+          if (loadedObject.rotation.x >= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if (actionRotate == 'XN') {
+          loadedObject.rotation.x -= ySpeed;
+          if (loadedObject.rotation.x <= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if (actionRotate == 'YC') {
+          loadedObject.rotation.y += ySpeed;
+          if (loadedObject.rotation.y >= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if (actionRotate == 'YN') {
+          loadedObject.rotation.y -= ySpeed;
+          if (loadedObject.rotation.y <= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if (actionRotate == 'ZC') {
+          loadedObject.rotation.z += ySpeed;
+          if (loadedObject.rotation.z >= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+        if (actionRotate == 'ZN') {
+          loadedObject.rotation.z -= ySpeed;
+          if (loadedObject.rotation.z <= targetRotation) {
+            rotating = false;
+            ySpeed = 0;
+          }
+        }
+      }
+    
 			renderer.render(scene, camera);
+
 		}
+
+		function rotateXC() {
+      actionRotate = 'XC';
+      rotating = true;
+      targetRotation += Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    }
+
+    function rotateXN() {
+      actionRotate = 'XN';
+      rotating = true;
+      targetRotation -= Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    }
+
+    function rotateYC() {
+      actionRotate = 'YC';
+      rotating = true;
+      targetRotation += Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    }
+
+
+    function rotateYN() {
+      actionRotate = 'YN';
+      rotating = true;
+      targetRotation -= Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    }
+
+
+
+    function rotateZC() {
+      actionRotate = 'ZC';
+      rotating = true;
+      targetRotation += Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    }
+
+
+
+    function rotateZN() {
+      actionRotate = 'ZN';
+      rotating = true;
+      targetRotation -= Math.PI / 6;
+      ySpeed = Math.PI / 180;
+    }
+
+
+    document.getElementById("rotateXCButton").addEventListener("click", rotateXC);
+
+    document.getElementById("rotateXNButton").addEventListener("click", rotateXN);
+
+    document.getElementById("rotateYCButton").addEventListener("click", rotateYC);
+
+    document.getElementById("rotateYNButton").addEventListener("click", rotateYN);
+
+    document.getElementById("rotateZCButton").addEventListener("click", rotateZC);
+
+    document.getElementById("rotateZNButton").addEventListener("click", rotateZN);
+
+
+		// zoomIn and zoomOut
+		var zoomAmount = 0.6; // Lượng zoom mỗi lần click
+
+		function zoomIn() {
+    if (!loadedObject) return; // Kiểm tra xem có đối tượng đã load hay không
+    var currentScale = loadedObject.scale.x;
+    var targetScale = currentScale - zoomAmount;
+    animateScale(loadedObject, currentScale, targetScale);
+}
+
+function zoomOut() {
+    if (!loadedObject) return; // Kiểm tra xem có đối tượng đã load hay không
+    var currentScale = loadedObject.scale.x;
+    var targetScale = currentScale + zoomAmount;
+    animateScale(loadedObject, currentScale, targetScale);
+}
+		document.getElementById("zoomInButton").addEventListener("click", zoomIn);
+		document.getElementById("zoomOutButton").addEventListener("click", zoomOut);
+
+		function animateScale(object, currentScale, targetScale) {
+			var scaleSpeed = 0.03; // Tốc độ thay đổi scale
+			var animateScaleInternal = function () {
+				if ((currentScale < targetScale && object.scale.x < targetScale) ||
+					(currentScale > targetScale && object.scale.x > targetScale)) {
+					object.scale.x += (targetScale - currentScale) * scaleSpeed;
+					object.scale.y += (targetScale - currentScale) * scaleSpeed;
+					object.scale.z += (targetScale - currentScale) * scaleSpeed;
+					requestAnimationFrame(animateScaleInternal);
+				}
+			};
+
+			animateScaleInternal();
+		}
+		// zoomIn and zoomOut
 	</script>
+	        <button type="button" class="m-1 btn btn-outline-success" id="rotateXCButton">rotate XC</button>
+			<button type="button" class="m-1 btn btn-outline-success" id="rotateXNButton">rotate XN</button>
+			<button type="button" class="m-1 btn btn-outline-success" id="rotateYCButton">rotate YC</button>
+			<button type="button" class="m-1 btn btn-outline-success" id="rotateYNButton">rotate YN</button>
+			<button type="button" class="m-1 btn btn-outline-success" id="rotateZCButton">rotate ZC</button>
+			<button type="button" class="m-1 btn btn-outline-success" id="rotateZNButton">rotate ZN</button>
+	<button type="button" class="m-1 btn btn-outline-primary" id="zoomInButton">zoomIn</button>
+	<button type="button" class="m-1 btn btn-outline-primary" id="zoomOutButton">zoomOut</button>
 </body>
+
 </html>
