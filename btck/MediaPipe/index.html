@@ -271,6 +271,7 @@ const socket = new WebSocket('ws://localhost:8765');
 socket.addEventListener('message', function (event) {
     document.getElementById('random-value').innerText = event.data;
     // Xử lý các giá trị event.data và gọi các hàm tương ứng
+    console.log(event.data);
     switch (event.data) {
         case 'moveLeft':
             moveLeft();
