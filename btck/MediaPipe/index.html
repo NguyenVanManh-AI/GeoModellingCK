@@ -41,13 +41,13 @@
     var renderer;
 
     var loadedObject;
-    var objectSelect = 'male';
+    var objectSelect = 'IronMan';
 
     // url 
     const urlParams = new URLSearchParams(window.location.search);
     objectSelect = urlParams.get('name');
     if (!objectSelect) {
-      urlParams.set('name', 'male');
+      urlParams.set('name', 'IronMan');
       const newUrl = window.location.pathname + '?' + urlParams.toString();
       window.location.href = newUrl;
     } else { console.log("Tham số location đã tồn tại: ", objectSelect); }
@@ -58,7 +58,7 @@
     function init(objectSelect) {
       camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 10000);
       camera.position.z = 150;
-      camera.position.y = 50;
+      camera.position.y = 100;
 
 
       // // scene
@@ -101,7 +101,8 @@
         scene.add( object );
       });
 
-      if(objectSelect == 'bugatti') loader.load( 'obj/bugatti.obj', 'obj/bugatti.mtl' );
+      var listMTL = ["bugatti", "IronMan", "Tree1", "Room", "Cottage"];
+      if(listMTL.includes(objectSelect)) loader.load( 'obj/'+objectSelect+'.obj', 'obj/'+objectSelect+'.mtl' );
       else loader.load('obj/' + objectSelect + '.obj');
       //
       renderer = new THREE.WebGLRenderer();
@@ -117,7 +118,6 @@
     }
     document.getElementById('objSelect').addEventListener('change', function () {
       loadObjectSelected(this.value);
-
     });
 
     function animate() {
@@ -429,7 +429,11 @@
           <option selected value="male">Select Object</option>
           <option value="male">Male</option>
           <option value="turtle">Turtle</option>
-          <option value="Bugatti">Bugatti</option>
+          <option value="bugatti">Bugatti</option>
+          <option value="IronMan">IronMan</option>
+          <option value="Tree1">Tree1</option>
+          <option value="Room">Room</option>
+          <option value="Cottage">Cottage</option>
         </select>
       </div>
       <div class="col-2" id="random-value"></div>
