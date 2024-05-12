@@ -77,7 +77,7 @@ sentence = []
 texts = []
 threshold = 0.95
 is_save = True
-
+old_time = time.time()
 cap = cv2.VideoCapture(0)
 # Set mediapipe model
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
@@ -126,8 +126,12 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
                     else:
                         texts.append(sentence[-1])
                     # ghi texts[-1] vào dòng tiếp theo của file txt
-                    with open('actions.txt', 'a') as f:
-                        f.write(texts[-1] + '\n')
+                    new_time = time.time()
+                    duration = new_time - old_time
+                    old_time = new_time
+                    if (duration > 2):
+                        with open('actions.txt', 'a') as f:
+                            f.write(texts[-1] + '\n')
                     if len(texts) > 3:
                         texts = texts[-3:]
                     sentence = sentence[-5:]
