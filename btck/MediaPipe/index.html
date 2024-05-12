@@ -101,7 +101,7 @@
         scene.add( object );
       });
 
-      var listMTL = ["bugatti", "IronMan", "Tree1", "Room", "Cottage"];
+      var listMTL = ["bugatti", "IronMan", "Tree1", "Room", "Cottage", "Bird", "Duck", "Aircraft"];
       if(listMTL.includes(objectSelect)) loader.load( 'obj/'+objectSelect+'.obj', 'obj/'+objectSelect+'.mtl' );
       else loader.load('obj/' + objectSelect + '.obj');
       //
@@ -434,6 +434,9 @@
           <option value="Tree1">Tree1</option>
           <option value="Room">Room</option>
           <option value="Cottage">Cottage</option>
+          <option value="Bird">Bird</option>
+          <option value="Duck">Duck</option>
+          <option value="Aircraft">Aircraft</option>
         </select>
       </div>
       <div class="col-2" id="random-value"></div>
