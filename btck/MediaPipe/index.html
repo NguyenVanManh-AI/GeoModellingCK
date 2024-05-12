@@ -34,10 +34,18 @@
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.getElementById("cube").appendChild(renderer.domElement);
-    var geometry = new THREE.TorusGeometry(350, 150, 32, 100);
-    var material = new THREE.MeshBasicMaterial({ color: '#28A745', wireframe: true, });
-    var torus = new THREE.Mesh(geometry, material);
-    scene.add(torus);
+
+    // var geometry = new THREE.TorusGeometry(350, 150, 32, 100);
+    // var material = new THREE.MeshBasicMaterial({ color: '#28A745', wireframe: true, });
+    // var torus = new THREE.Mesh(geometry, material);
+    // scene.add(torus);
+
+    // Thay thế hình dạng torus bằng hình dạng cầu
+var geometry = new THREE.SphereGeometry(200, 32, 32); // Tạo hình dạng cầu với bán kính 200 và độ phân giải 32x32
+var material = new THREE.MeshBasicMaterial({ color: '#28A745', wireframe: true }); // Tạo vật liệu cho hình dạng mới
+var torus = new THREE.Mesh(geometry, material); // Tạo mesh mới từ hình dạng và vật liệu
+scene.add(torus); // Thêm hình dạng mới vào cảnh
+
 
     function animate() {
       requestAnimationFrame(animate);
@@ -86,7 +94,6 @@
           }
         }
       }
-
       if (movingLeft) {
         torus.position.x -= xSpeed;
       } else if (movingRight) {
@@ -104,87 +111,86 @@
     animate();
 
     function moveLeft() {
-  movingLeft = true;
-  setTimeout(function () {
-    movingLeft = false;
-  }, 1000); // 1s
-}
+      movingLeft = true;
+      setTimeout(function () {
+        movingLeft = false;
+      }, 1000); // 1s
+    }
 
-function moveRight() {
-  movingRight = true;
-  setTimeout(function () {
-    movingRight = false;
-  }, 1000); // 1s
-}
+    function moveRight() {
+      movingRight = true;
+      setTimeout(function () {
+        movingRight = false;
+      }, 1000); // 1s
+    }
 
-document.getElementById("moveLeftButton").addEventListener("click", moveLeft);
-document.getElementById("moveRightButton").addEventListener("click", moveRight);
+    document.getElementById("moveLeftButton").addEventListener("click", moveLeft);
+    document.getElementById("moveRightButton").addEventListener("click", moveRight);
+
+    function moveTop() {
+      movingTop = true;
+      setTimeout(function () {
+        movingTop = false;
+      }, 1000); // 1s
+    }
+
+    function moveBottom() {
+      movingBottom = true;
+      setTimeout(function () {
+        movingBottom = false;
+      }, 1000); // 1s
+    }
+
+    document.getElementById("moveTopButton").addEventListener("click", moveTop);
+    document.getElementById("moveBottomButton").addEventListener("click", moveBottom);
 
 
-function moveTop() {
-  movingTop = true;
-  setTimeout(function () {
-    movingTop = false;
-  }, 1000); // 1s
-}
-
-function moveBottom() {
-  movingBottom = true;
-  setTimeout(function () {
-    movingBottom = false;
-  }, 1000); // 1s
-}
-
-document.getElementById("moveTopButton").addEventListener("click", moveTop);
-document.getElementById("moveBottomButton").addEventListener("click", moveBottom);
-
-
-function rotateXC() {
-  actionRotate = 'XC';
+    function rotateXC() {
+      actionRotate = 'XC';
       rotating = true;
       targetRotation += Math.PI / 6;
       ySpeed = Math.PI / 180;
-}
+    }
 
-function rotateXN() {
-  actionRotate = 'XN';
+    function rotateXN() {
+      actionRotate = 'XN';
       rotating = true;
       targetRotation -= Math.PI / 6;
       ySpeed = Math.PI / 180;
-}
+    }
 
-function rotateYC() {
-  actionRotate = 'YC';
+    function rotateYC() {
+      actionRotate = 'YC';
       rotating = true;
       targetRotation += Math.PI / 6;
       ySpeed = Math.PI / 180;
-}
+    }
 
 
-function rotateYN() {
-  actionRotate = 'YN';
+    function rotateYN() {
+      actionRotate = 'YN';
       rotating = true;
       targetRotation -= Math.PI / 6;
       ySpeed = Math.PI / 180;
-}
+    }
 
 
 
-function rotateZC() {
-  actionRotate = 'ZC';
+    function rotateZC() {
+      actionRotate = 'ZC';
       rotating = true;
       targetRotation += Math.PI / 6;
       ySpeed = Math.PI / 180;
-}
+    }
 
 
 
-function rotateZN() {
-  actionRotate = 'ZN';
+    function rotateZN() {
+      actionRotate = 'ZN';
       rotating = true;
       targetRotation -= Math.PI / 6;
       ySpeed = Math.PI / 180;
-}
+    }
 
 
     document.getElementById("rotateXCButton").addEventListener("click", rotateXC);
@@ -205,12 +211,12 @@ function rotateZN() {
       var currentScale = torus.scale.x;
       var targetScale = currentScale - zoomAmount;
       animateScale(torus, currentScale, targetScale);
-}
-function zoomOut() {
-  var currentScale = torus.scale.x;
+    }
+    function zoomOut() {
+      var currentScale = torus.scale.x;
       var targetScale = currentScale + zoomAmount;
       animateScale(torus, currentScale, targetScale);
-}
+    }
     document.getElementById("zoomInButton").addEventListener("click", zoomIn);
     document.getElementById("zoomOutButton").addEventListener("click", zoomOut);
 
@@ -237,13 +243,13 @@ function zoomOut() {
       var currentZ = torus.position.z;
       var targetZ = currentZ - moveAmount;
       animatePosition(torus, currentZ, targetZ);
-}
+    }
 
-function moveNear() {
-  var currentZ = torus.position.z;
+    function moveNear() {
+      var currentZ = torus.position.z;
       var targetZ = currentZ + moveAmount;
       animatePosition(torus, currentZ, targetZ);
-}
+    }
 
 
     document.getElementById("moveFarButton").addEventListener("click", moveFar);
@@ -265,64 +271,64 @@ function moveNear() {
     }
     // moveFar
 
-// socket
-const socket = new WebSocket('ws://localhost:8765');
+    // socket
+    const socket = new WebSocket('ws://localhost:8765');
 
-socket.addEventListener('message', function (event) {
-    document.getElementById('random-value').innerText = event.data;
-    // Xử lý các giá trị event.data và gọi các hàm tương ứng
-    console.log(event.data);
-    switch (event.data) {
+    socket.addEventListener('message', function (event) {
+      document.getElementById('random-value').innerText = event.data;
+      // Xử lý các giá trị event.data và gọi các hàm tương ứng
+      console.log(event.data);
+      switch (event.data) {
         case 'moveLeft':
-            moveLeft();
-            break;
+          moveLeft();
+          break;
         case 'moveRight':
-            moveRight();
-            break;
+          moveRight();
+          break;
         case 'moveTop':
-            moveTop();
-            break;
+          moveTop();
+          break;
         case 'moveBottom':
-            moveBottom();
-            break;
+          moveBottom();
+          break;
         case 'rotateXC':
-            rotateXC();
-            break;
+          rotateXC();
+          break;
         case 'rotateXN':
-            rotateXN();
-            break;
+          rotateXN();
+          break;
         case 'rotateYC':
-            rotateYC();
-            break;
+          rotateYC();
+          break;
         case 'rotateYN':
-            rotateYN();
-            break;
+          rotateYN();
+          break;
         case 'rotateZC':
-            rotateZC();
-            break;
+          rotateZC();
+          break;
         case 'rotateZN':
-            rotateZN();
-            break;
-            
+          rotateZN();
+          break;
+
         case 'zoomOut':
-            zoomOut();
-            break;
+          zoomOut();
+          break;
 
         case 'zoomIn':
-            zoomIn();
-            break;
+          zoomIn();
+          break;
 
         case 'moveFar':
-            moveFar();
-            break;
+          moveFar();
+          break;
         case 'moveNear':
-            moveNear();
-            break;
+          moveNear();
+          break;
         default:
-            // Xử lý giá trị không khớp nếu cần
-            break;
-    }
-});
+          // Xử lý giá trị không khớp nếu cần
+          break;
+      }
+    });
 
 
   </script>

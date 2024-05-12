@@ -36,7 +36,7 @@ async def send_random_value(websocket, path):
             conn.commit()
         else:
             # Nếu không có dữ liệu trong bảng actions, gửi 'something' qua websocket
-            await websocket.send(str('something'))
+            await websocket.send(str('no action'))
 
         await asyncio.sleep(1)
 
