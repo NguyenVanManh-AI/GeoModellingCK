@@ -15,14 +15,18 @@
 
 <body>
   <script src="load_obj_example/three.min.js"></script>
+
+  <script src="load_obj_example/MTLLoader.js"></script>
+  <script src="load_obj_example/OBJMTLLoader.js"></script>
+
   <script src="load_obj_example/OBJLoader.js"></script>
   <script src="load_obj_example/Detector.js"></script>
   <script src="load_obj_example/stats.min.js"></script>
   <script type="module">
     // import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.module.js";
 
-    var xSpeed = 5;
-    var topSpeed = 5;
+    var xSpeed = 0.5;
+    var topSpeed = 0.5;
     var movingLeft = false;
     var movingRight = false;
     var movingTop = false;
@@ -33,15 +37,11 @@
     var rotating = false;
     var scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
+    var camera ;
+    var renderer;
 
     var loadedObject;
     var objectSelect = 'male';
-
-    var camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 10000);
-    camera.position.z = 1000;
-    var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById("cube").appendChild(renderer.domElement);
 
     // url 
     const urlParams = new URLSearchParams(window.location.search);
@@ -57,39 +57,56 @@
     init(objectSelect);
     function init(objectSelect) {
       camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 10000);
-      camera.position.z = 1000;
-      var renderer = new THREE.WebGLRenderer();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.getElementById("cube").appendChild(renderer.domElement);
+      camera.position.z = 150;
+      camera.position.y = 50;
+
+
+      // // scene
+      // scene = new THREE.Scene();
+      // var directionalLight = new THREE.DirectionalLight(0xffeedd);
+      // directionalLight.position.set(0, 0, 1).normalize();
+      // scene.add(directionalLight);
+      // // texture
+      // var texture = new THREE.Texture();
+      // var loader = new THREE.ImageLoader();
+      // loader.addEventListener('load', function (event) {
+      //   texture.image = event.content;
+      //   texture.needsUpdate = true;
+      // });
+      // loader.load('load_obj_example/ash_uvgrid01.jpg');
+      // // model
+      // var loader = new THREE.OBJLoader();
+      // loader.addEventListener('load', function (event) {
+      //   var object = event.content;
+      //   loadedObject = object; // Lưu đối tượng đã load vào biến global
+      //   for (var i = 0, l = object.children.length; i < l; i++) {
+      //     object.children[i].material.map = texture;
+      //   }
+      //   scene.add(object);
+      // });
+
 
       // scene
       scene = new THREE.Scene();
-      var directionalLight = new THREE.DirectionalLight(0xffeedd);
-      directionalLight.position.set(0, 0, 1).normalize();
-      scene.add(directionalLight);
-      // texture
-      var texture = new THREE.Texture();
-      var loader = new THREE.ImageLoader();
-      loader.addEventListener('load', function (event) {
-        texture.image = event.content;
-        texture.needsUpdate = true;
-      });
-      loader.load('load_obj_example/ash_uvgrid01.jpg');
+      var ambient = new THREE.AmbientLight( 0x101030 );
+      scene.add( ambient );
+      var directionalLight = new THREE.DirectionalLight( 0xffeedd );
+      directionalLight.position.set( 0, 0, 1 ).normalize();
+      scene.add( directionalLight );
       // model
-      var loader = new THREE.OBJLoader();
-      loader.addEventListener('load', function (event) {
+      var loader = new THREE.OBJMTLLoader();
+      loader.addEventListener( 'load', function ( event ) {
         var object = event.content;
-        loadedObject = object; // Lưu đối tượng đã load vào biến global
-        for (var i = 0, l = object.children.length; i < l; i++) {
-          object.children[i].material.map = texture;
-        }
-        scene.add(object);
+        loadedObject = object;
+        scene.add( object );
       });
-      loader.load('obj/' + objectSelect + '.obj');
+
+      if(objectSelect == 'bugatti') loader.load( 'obj/bugatti.obj', 'obj/bugatti.mtl' );
+      else loader.load('obj/' + objectSelect + '.obj');
       //
       renderer = new THREE.WebGLRenderer();
       renderer.setSize(window.innerWidth, window.innerHeight);
-      document.getElementById("cube").appendChild(renderer.domElement);
+      document.getElementById("container-box").appendChild(renderer.domElement);
     }
 
     function loadObjectSelected(nameObject) {
@@ -389,7 +406,7 @@
   </script>
   <section id="demos">
     <canvas class="output_canvas" id="output_canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
-    <div id="cube"></div>
+    <div id="container-box"></div>
     <div id="list_btn" class="d-flex justify-content-end">
       <div>
         <button type="button" class="m-1 btn btn-outline-primary" id="moveLeftButton">Move Left</button>
@@ -410,9 +427,9 @@
       <div class="col-2 m-4">
         <select id="objSelect" class="form-select" aria-label="Default select example">
           <option selected value="male">Select Object</option>
-          <option value="cone">Cone</option>
           <option value="male">Male</option>
           <option value="turtle">Turtle</option>
+          <option value="bugatti">bugatti</option>
         </select>
       </div>
       <div class="col-2" id="random-value"></div>
