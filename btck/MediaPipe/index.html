@@ -11,6 +11,7 @@
   <title>Objects Control</title>
   <link rel="shortcut icon" href="https://threejs.org/files/favicon.ico" media="(prefers-color-scheme: light)">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -27,6 +28,7 @@
 
     var xSpeed = 0.5;
     var topSpeed = 0.5;
+    var scaleSpeed = 0.03; // Tốc độ thay đổi scale
     var movingLeft = false;
     var movingRight = false;
     var movingTop = false;
@@ -294,7 +296,6 @@
     document.getElementById("zoomOutButton").addEventListener("click", zoomOut);
 
     function animateScale(object, currentScale, targetScale) {
-      var scaleSpeed = 0.03; // Tốc độ thay đổi scale
       var animateScaleInternal = function () {
         if ((currentScale < targetScale && object.scale.x < targetScale) ||
           (currentScale > targetScale && object.scale.x > targetScale)) {
@@ -348,8 +349,7 @@
     const socket = new WebSocket('ws://localhost:8765');
 
     socket.addEventListener('message', function (event) {
-      document.getElementById('random-value').innerText = event.data;
-      // Xử lý các giá trị event.data và gọi các hàm tương ứng
+      document.getElementById('name_action_detect').value  = event.data;
       console.log(event.data);
       switch (event.data) {
         case 'moveLeft':
@@ -405,41 +405,46 @@
 
   </script>
   <section id="demos">
-    <canvas class="output_canvas" id="output_canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
     <div id="container-box"></div>
     <div id="list_btn" class="d-flex justify-content-end">
       <div>
-        <button type="button" class="m-1 btn btn-outline-primary" id="moveLeftButton">Move Left</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="moveRightButton">Move Right</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="moveTopButton">Move Top</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="moveBottomButton">Move Bottom</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="zoomInButton">zoomIn</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="zoomOutButton">zoomOut</button>
-        <button type="button" class="m-1 btn btn-outline-success" id="rotateXCButton">rotate XC</button>
-        <button type="button" class="m-1 btn btn-outline-success" id="rotateXNButton">rotate XN</button>
-        <button type="button" class="m-1 btn btn-outline-success" id="rotateYCButton">rotate YC</button>
-        <button type="button" class="m-1 btn btn-outline-success" id="rotateYNButton">rotate YN</button>
-        <button type="button" class="m-1 btn btn-outline-success" id="rotateZCButton">rotate ZC</button>
-        <button type="button" class="m-1 btn btn-outline-success" id="rotateZNButton">rotate ZN</button>
-        <button type="button" class="m-1 btn btn-outline-info" id="moveFarButton">moveFar</button>
-        <button type="button" class="m-1 btn btn-outline-info" id="moveNearButton">moveNear</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveLeftButton"><i class="fa-solid fa-angles-left"></i> Move Left</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveRightButton"><i class="fa-solid fa-angles-right"></i> Move Right</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveTopButton"><i class="fa-solid fa-angles-up"></i> Move Top</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveBottomButton"><i class="fa-solid fa-angles-down"></i> Move Bottom</button>
+        <button type="button" class="m-1 btn btn-outline-info" id="zoomInButton"><i class="fa-solid fa-minimize"></i> Zoom In</button>
+        <button type="button" class="m-1 btn btn-outline-info" id="zoomOutButton"><i class="fa-solid fa-arrows-up-down-left-right"></i> Zoom Out</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateXCButton">Rotate XC</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateXNButton">Rotate XN</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateYCButton">Rotate YC</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateYNButton">Rotate YN</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateZCButton">Rotate ZC</button>
+        <button type="button" class="m-1 btn btn-outline-success" id="rotateZNButton">Rotate ZN</button>
+        <button type="button" class="m-1 btn btn-outline-warning" id="moveFarButton">Move Far</button>
+        <button type="button" class="m-1 btn btn-outline-warning" id="moveNearButton">Move Near</button>
       </div>
-      <div class="col-2 m-4">
-        <select id="objSelect" class="form-select" aria-label="Default select example">
-          <option selected value="male">Select Object</option>
-          <option value="male">Male</option>
-          <option value="turtle">Turtle</option>
-          <option value="bugatti">Bugatti</option>
-          <option value="IronMan">IronMan</option>
-          <option value="Tree1">Tree1</option>
-          <option value="Room">Room</option>
-          <option value="Cottage">Cottage</option>
-          <option value="Bird">Bird</option>
-          <option value="Duck">Duck</option>
-          <option value="Aircraft">Aircraft</option>
-        </select>
+    </div>
+    <div id="group-div" class="col-12">
+      <div class="row p-2 d-flex justify-content-end">
+        <div class="col-2">
+          <select id="objSelect" class="form-select" aria-label="Default select example">
+            <option selected value="male">Select Object</option>
+            <option value="male">Male</option>
+            <option value="turtle">Turtle</option>
+            <option value="bugatti">Bugatti</option>
+            <option value="IronMan">IronMan</option>
+            <option value="Tree1">Tree1</option>
+            <option value="Room">Room</option>
+            <option value="Cottage">Cottage</option>
+            <option value="Bird">Bird</option>
+            <option value="Duck">Duck</option>
+            <option value="Aircraft">Aircraft</option>
+          </select>
+        </div>
+        <div class="col-2">
+          <input id="name_action_detect" class="form-control col-2" placeholder="Name Action">
+        </div>
       </div>
-      <div class="col-2" id="random-value"></div>
     </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

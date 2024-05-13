@@ -7,7 +7,13 @@
   #container-box {
     max-width: 100%;
     width: 100%;
-    height: 100%;
+    max-height: 100%;
+  }
+
+  #container-box canvas {
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
   }
 
   section {
@@ -21,30 +27,25 @@
     pointer-events: none;
   }
 
-  .output_canvas {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-  }
-
   #list_btn {
     border-radius: 10px;
     padding: 10px;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 20%;
+    left: 0px;
+    width: 22%;
   }
-
   .btn {
     font-weight: bold !important;
   }
-  #random-value {
+
+  #name_action_detect {
     font-weight: bold;
-    font-size: 20px;
-    border: 1px solid grey;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    color: green;
+  }
+
+  #group-div {
+    position: absolute;
+    top: 0px;
+    right: 0px;
   }
