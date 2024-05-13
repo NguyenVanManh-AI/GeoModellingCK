@@ -129,7 +129,7 @@ async def main(websocket, path):
                     else:
                         sentence = []
 
-                    if len(sentence) > 5:
+                    if len(sentence) > 3:
                         if len(texts) > 0:
                             if sentence[-1] != texts[-1]:
                                 texts.append(sentence[-1])
@@ -140,6 +140,7 @@ async def main(websocket, path):
                         duration = new_time - old_time
                         old_time = new_time
                         if (duration > 2):
+                            sentence = []
                             print("ACTION : ", texts[-1])
                             await websocket.send(texts[-1])
                             await asyncio.sleep(1)
@@ -147,7 +148,7 @@ async def main(websocket, path):
                             #     f.write(texts[-1] + '\n')
                         if len(texts) > 3:
                             texts = texts[-3:]
-                        sentence = sentence[-5:]
+                        # sentence = sentence[-5:]
 
             cv2.putText(image, ' '.join(texts), (3,30),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2, cv2.LINE_AA)

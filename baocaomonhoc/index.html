@@ -30,6 +30,7 @@
 		let lightProbe;
 		
 		// url 
+		console.log("window.location.search", window.location.search)
 		const urlParams = new URLSearchParams(window.location.search);
 		let locationParam = urlParams.get('location');
 		if (!locationParam) {
@@ -40,28 +41,53 @@
 		// url 
 
 		// map
-		var map = L.map('map').setView([16.054407, 108.202164], 12); // Set the initial view to Da Nang
+		var map = L.map('map').setView([16.054407, 108.202164], 15); // Set the initial view to Da Nang
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
-        var locations = [
-            { path360: "mykhe", name: "Biển Mỹ Khê Đà Nẵng", coordinates: [16.0639056, 108.2466932] },
-            { path360: "myan", name: "Biển Mỹ An Đà Nẵng", coordinates: [16.0515477, 108.2455815] },
-            { path360: "bachkhoa", name: "Đại học Bách Khoa Đà Nẵng", coordinates: [16.075017, 108.1532003] },
-            { path360: "itfc", name: "Khu C Đại học Bách Khoa Đà Nẵng", coordinates: [16.074130, 108.152709] },
-            { path360: "earea", name: "Khu E Đại học Bách Khoa Đà Nẵng", coordinates: [16.075573, 108.153430] },
-            { path360: "bridge", name: "Cầu Hoa Giấy Đại học Bách Khoa Đà Nẵng", coordinates: [16.075405, 108.152413] },	
-            { path360: "fountain", name: "Đài phun nước Đại học Bách Khoa Đà Nẵng", coordinates: [16.075240, 108.152646] },	
-            { path360: "intersection2", name: "Giao lộ đối diện khu E Đại học Bách Khoa Đà Nẵng", coordinates: [16.074954, 108.153419] },	
-            { path360: "intersection1", name: "Giao lộ Đại học Bách Khoa Đà Nẵng", coordinates: [16.075782, 108.152839] },	
-            { path360: "itf", name: "Khoa Công nghệ thông tin Đại học Bách Khoa Đà Nẵng", coordinates: [16.074691, 108.152950] },	
-        ];
+        // var locations = [
+        //     { path360: "mykhe", name: "Biển Mỹ Khê Đà Nẵng", coordinates: [16.056609, 108.247571] },
+        //     { path360: "myan", name: "Biển Mỹ An Đà Nẵng", coordinates: [16.049108, 108.249350] },
+        //     { path360: "bachkhoa", name: "Đại học Bách Khoa Đà Nẵng", coordinates: [16.075017, 108.1532003] },
+        //     { path360: "itfc", name: "Khu C Đại học Bách Khoa Đà Nẵng", coordinates: [16.074130, 108.152709] },
+        //     { path360: "earea", name: "Khu E Đại học Bách Khoa Đà Nẵng", coordinates: [16.075573, 108.153430] },
+        //     { path360: "bridge", name: "Cầu Hoa Giấy Đại học Bách Khoa Đà Nẵng", coordinates: [16.075405, 108.152413] },	
+        //     { path360: "fountain", name: "Đài phun nước Đại học Bách Khoa Đà Nẵng", coordinates: [16.075240, 108.152646] },	
+        //     { path360: "intersection2", name: "Giao lộ đối diện khu E Đại học Bách Khoa Đà Nẵng", coordinates: [16.074954, 108.153419] },	
+        //     { path360: "intersection1", name: "Giao lộ Đại học Bách Khoa Đà Nẵng", coordinates: [16.075782, 108.152839] },	
+        //     { path360: "itf", name: "Khoa Công nghệ thông tin Đại học Bách Khoa Đà Nẵng", coordinates: [16.074691, 108.152950] },	
+        // ];
+		var locations = [];
+
+		await fetch('http://127.0.0.1:8000/api/locations/')
+			.then(response => response.json())
+			.then(data => {
+				// Dữ liệu sẽ được trả về ở đây
+				console.log(data);
+				// Tiếp tục xử lý dữ liệu và render
+				for (let i = 0; i < data.length; i++) {
+					locations.push({
+						path360: data[i].path360,
+						name: data[i].name,
+						coordinates: [data[i].latitude, data[i].longitude]
+					});
+				}
+				console.log(locations);
+			})
+			.catch(error => {
+				console.error('Error fetching locations:', error);
+			});
+
 
 		locations.forEach(function (location) {
 			const marker = L.marker(location.coordinates).addTo(map);
 			marker.bindPopup("<b>" + location.name + "</b>").openPopup();
 			marker.on('click', function () {
+				// hiển trị vị trí được click ở giữa bản đồ
+				map.setView(location.coordinates, 15);
+				L.popup().setLatLng(location.coordinates).setContent(location.name).openOn(map);
+				// thay đổi tham số location trên url
 				urlParams.set('location', location.path360);
 				const newUrl = window.location.pathname + '?' + urlParams.toString();
 				window.location.href = newUrl;
