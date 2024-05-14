@@ -1,3 +1,12 @@
+- Using Threejs 
+    + main.js 
+        + import * as THREE from 'three';
+
+- Using Leaflet 
+    + https://www.npmjs.com/package/@vue-leaflet/vue-leaflet 
+    + >npm i -D @vue-leaflet/vue-leaflet leaflet
+    + import 'leaflet/dist/leaflet.css';
+
 # vue3geo
 
 ## Project setup
