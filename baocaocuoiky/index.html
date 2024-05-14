@@ -125,7 +125,7 @@
 				scene.background = cubeTexture;
 				cubeCamera.update(renderer, scene);
 				lightProbe.copy(LightProbeGenerator.fromCubeRenderTarget(renderer, cubeRenderTarget));
-				// scene.add(new LightProbeHelper(lightProbe, 5));
+				// scene.add(new LightProbeHelper(lightProbe, 5));  
 				render();
 			});
 
