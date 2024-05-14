@@ -1,0 +1,6 @@
+- Chia map và khung cảnh ra làm 2 nữa trên dưới 
+- Bỏ chấm tròn ở giữa (ẩn đi) 
+- Thêm các hướng mũi tên (làm thêm)
+- Tìm kiếm địa điểm 
+- Tự động setup tên địa điểm, tọa độ , tự động cắt hình ảnh 
+- Focus đầu tiên vào trường đại học bách khoa , zoom to lên 
