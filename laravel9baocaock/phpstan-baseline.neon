@@ -1,0 +1,2856 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot access offset 'apiBroadcast' on mixed\\.$#"
+			count: 1
+			path: app/Console/Commands/GetInforChannelStatisticalsDailyCommand.php
+
+		-
+			message: "#^Cannot access offset 'apiMulticast' on mixed\\.$#"
+			count: 1
+			path: app/Console/Commands/GetInforChannelStatisticalsDailyCommand.php
+
+		-
+			message: "#^Cannot access offset 'blocks' on mixed\\.$#"
+			count: 1
+			path: app/Console/Commands/GetInforChannelStatisticalsDailyCommand.php
+
+		-
+			message: "#^Cannot access offset 'followers' on mixed\\.$#"
+			count: 1
+			path: app/Console/Commands/GetInforChannelStatisticalsDailyCommand.php
+
+		-
+			message: "#^Cannot access offset 'targetedReaches' on mixed\\.$#"
+			count: 1
+			path: app/Console/Commands/GetInforChannelStatisticalsDailyCommand.php
+
+		-
+			message: "#^Method App\\\\Console\\\\Commands\\\\GetInforChannelStatisticalsDailyCommand\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Console/Commands/GetInforChannelStatisticalsDailyCommand.php
+
+		-
+			message: "#^Method App\\\\Console\\\\Commands\\\\MakeRepositoryInterface\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Console/Commands/MakeRepositoryInterface.php
+
+		-
+			message: "#^Part \\$name \\(array\\|bool\\|string\\|null\\) of encapsed string cannot be cast to string\\.$#"
+			count: 15
+			path: app/Console/Commands/MakeRepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Console\\\\Commands\\\\ReminderMailCommand\\:\\:handle\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: app/Console/Commands/ReminderMailCommand.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Cannot access property \\$channel_access_token on App\\\\Models\\\\Channel\\|null\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Cannot access property \\$channel_id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Cannot access property \\$content_data on App\\\\Models\\\\Content\\|null\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Cannot access property \\$content_data on mixed\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Console\\\\Commands\\\\SendBroadCastEveryMinuteCommand\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Method App\\\\Console\\\\Commands\\\\SendBroadCastEveryMinuteCommand\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Method App\\\\Console\\\\Commands\\\\SendBroadCastEveryMinuteCommand\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Method App\\\\Console\\\\Commands\\\\SendBroadCastEveryMinuteCommand\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|null given\\.$#"
+			count: 1
+			path: app/Console/Commands/SendBroadCastEveryMinuteCommand.php
+
+		-
+			message: "#^Method App\\\\Console\\\\Commands\\\\SendMail\\:\\:handle\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: app/Console/Commands/SendMail.php
+
+		-
+			message: "#^Property App\\\\Console\\\\Kernel\\:\\:\\$commands type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Console/Kernel.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\AdminController\\:\\:addManager\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/AdminController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\AdminController\\:\\:changeIsBlockManager\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/AdminController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\AdminController\\:\\:changeIsBlockManager\\(\\) has parameter \\$id_user with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/AdminController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\AdminController\\:\\:changeIsBlockManyManager\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/AdminController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\AdminController\\:\\:getManagers\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/AdminController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\AdminController\\:\\:login\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/AdminController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\AdminController\\:\\:logout\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/AdminController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\AdminController\\:\\:profile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/AdminController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:addBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:changeIsDeleteBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:changeIsDeleteBroadcast\\(\\) has parameter \\$id_broadcast with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:changeIsDeleteManyBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:getBroadcasts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:getDetailBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:getDetailBroadcast\\(\\) has parameter \\$id_broadcast with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:sendNow\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:testSend\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:updateBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\BroadcastController\\:\\:updateBroadcast\\(\\) has parameter \\$id_broadcast with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/BroadcastController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ChannelStatisticalController\\:\\:Statistical\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ChannelStatisticalController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:addContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:changeIsDeleteContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:changeIsDeleteContent\\(\\) has parameter \\$id_content with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:changeIsDeleteManyContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:contentDetail\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:contentDetail\\(\\) has parameter \\$id_content with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:getContentForBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:getContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:updateContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ContentController\\:\\:updateContent\\(\\) has parameter \\$id_content with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ContentController.php
+
+		-
+			message: "#^Cannot call method paginate\\(\\) on mixed\\.$#"
+			count: 1
+			path: app/Http/Controllers/ExampleController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ExampleController\\:\\:show\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/ExampleController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\ExampleController\\:\\:show\\(\\) should return Illuminate\\\\Contracts\\\\View\\\\View\\|Illuminate\\\\Http\\\\JsonResponse but returns mixed\\.$#"
+			count: 1
+			path: app/Http/Controllers/ExampleController.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Cannot call method getClientOriginalName\\(\\) on array\\<int, Illuminate\\\\Http\\\\UploadedFile\\>\\|Illuminate\\\\Http\\\\UploadedFile\\|null\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Controllers\\\\UploadFileS3Controller\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UploadFileS3Controller\\:\\:deleteFileS3\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UploadFileS3Controller\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UploadFileS3Controller\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UploadFileS3Controller\\:\\:uploadFileToS3\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function file_get_contents expects string, array\\<int, Illuminate\\\\Http\\\\UploadedFile\\>\\|Illuminate\\\\Http\\\\UploadedFile\\|null given\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Parameter \\#1 \\$paths of method Illuminate\\\\Filesystem\\\\FilesystemAdapter\\:\\:delete\\(\\) expects array\\|string, mixed given\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Parameter \\#2 \\$contents of method Illuminate\\\\Filesystem\\\\FilesystemAdapter\\:\\:put\\(\\) expects Illuminate\\\\Http\\\\File\\|Illuminate\\\\Http\\\\UploadedFile\\|Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string, string\\|false given\\.$#"
+			count: 1
+			path: app/Http/Controllers/UploadFileS3Controller.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:addMember\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:changeIsDeleteManyMember\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:changeIsDeleteMember\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:changeIsDeleteMember\\(\\) has parameter \\$id_user with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:changePassword\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:forgotSend\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:forgotUpdate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:getInforChannel\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:getMembers\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:login\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:logout\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:profile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:updateChannel\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:updateMember\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:updateMember\\(\\) has parameter \\$id_user with no type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Controllers\\\\UserController\\:\\:updateProfile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckAdminRole\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAdminRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckAdminRole\\:\\:handle\\(\\) has parameter \\$request with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAdminRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckAdminRole\\:\\:handle\\(\\) has parameter \\$roles with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAdminRole.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAdminRole.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^Cannot access property \\$is_block on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^Cannot access property \\$is_delete on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Middleware\\\\CheckAuthenticate\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckAuthenticate\\:\\:checkUserBlockAndDelete\\(\\) has parameter \\$guard with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckAuthenticate\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckAuthenticate\\:\\:handle\\(\\) has parameter \\$guards with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckAuthenticate\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckAuthenticate\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$next$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$request$#"
+			count: 1
+			path: app/Http/Middleware/CheckAuthenticate.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckRole.php
+
+		-
+			message: "#^Cannot access property \\$role on App\\\\Models\\\\Admin\\|null\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckRole.php
+
+		-
+			message: "#^Cannot access property \\$role on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckRole.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Middleware\\\\CheckRole\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckRole\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckRole\\:\\:handle\\(\\) has parameter \\$request with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckRole\\:\\:handle\\(\\) has parameter \\$roles with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckRole\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckRole\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckUserRole\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckUserRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckUserRole\\:\\:handle\\(\\) has parameter \\$request with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckUserRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckUserRole\\:\\:handle\\(\\) has parameter \\$roles with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckUserRole.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckUserRole.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\RedirectWhenAuthenticated\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/RedirectWhenAuthenticated.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\RedirectWhenAuthenticated\\:\\:handle\\(\\) has parameter \\$guard with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/RedirectWhenAuthenticated.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\RedirectWhenAuthenticated\\:\\:handle\\(\\) has parameter \\$request with no type specified\\.$#"
+			count: 1
+			path: app/Http/Middleware/RedirectWhenAuthenticated.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddBroadcast.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestAddBroadcast\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddBroadcast\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddBroadcast\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddBroadcast\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddBroadcast\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddBroadcast\\:\\:rules\\(\\) should return array\\<string, mixed\\> but returns array\\<int\\|string, array\\<int, App\\\\Rules\\\\CustomContentIdsValidation\\|App\\\\Rules\\\\SentAtDifference\\|string\\>\\|string\\>\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddBroadcast.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddContent.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestAddContent\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddContent\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddContent\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddContent\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddContent\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddContent.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddManager.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestAddManager\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddManager.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddManager\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddManager.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddManager\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddManager.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddManager\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddManager.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddManager\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddManager.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddMember.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestAddMember\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddMember\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddMember\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddMember\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestAddMember\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestAddMember.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlock.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestChangeIsBlock\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlock.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsBlock\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlock.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsBlock\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlock.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsBlock\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlock.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsBlock\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlock.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlockMany.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestChangeIsBlockMany\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlockMany.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsBlockMany\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlockMany.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsBlockMany\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlockMany.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsBlockMany\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlockMany.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsBlockMany\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsBlockMany.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteBroadcast.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteBroadcast\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteBroadcast\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteBroadcast\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteBroadcast\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteBroadcast\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteBroadcast.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteContent.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteContent\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteContent\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteContent\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteContent\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteContent\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteContent.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyBroadcast.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyBroadcast\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyBroadcast\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyBroadcast\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyBroadcast\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyBroadcast\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyBroadcast.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyContent.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyContent\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyContent\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyContent\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyContent\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyContent\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyContent.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyMember.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyMember\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyMember\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyMember\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyMember\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteManyMember\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteManyMember.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteMember.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteMember\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteMember\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteMember\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteMember\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangeIsDeleteMember\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangeIsDeleteMember.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangePassword.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestChangePassword\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangePassword.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangePassword\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangePassword.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangePassword\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangePassword.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangePassword\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangePassword.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestChangePassword\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestChangePassword.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestCreatePassword.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestCreatePassword\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestCreatePassword.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestCreatePassword\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestCreatePassword.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestCreatePassword\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestCreatePassword.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestCreatePassword\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestCreatePassword.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestCreatePassword\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestCreatePassword.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestLogin.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestLogin\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestLogin.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestLogin\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestLogin.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestLogin\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestLogin.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestLogin\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestLogin.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestLogin\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestLogin.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendForgot.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestSendForgot\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendForgot.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestSendForgot\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendForgot.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestSendForgot\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendForgot.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestSendForgot\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendForgot.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestSendForgot\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendForgot.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendNow.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestSendNow\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendNow.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestSendNow\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendNow.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestSendNow\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendNow.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestSendNow\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendNow.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestSendNow\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestSendNow.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestStatistical.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestStatistical\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestStatistical.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestStatistical\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestStatistical.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestStatistical\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestStatistical.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestStatistical\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestStatistical.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestStatistical\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestStatistical.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestTestSend.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestTestSend\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestTestSend.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestTestSend\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestTestSend.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestTestSend\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestTestSend.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestTestSend\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestTestSend.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestTestSend\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestTestSend.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestTestSend\\:\\:rules\\(\\) should return array\\<string, mixed\\> but returns array\\<int\\|string, array\\<int, App\\\\Rules\\\\CustomContentIdsValidation\\|string\\>\\|string\\>\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestTestSend.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateBroadcast.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestUpdateBroadcast\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateBroadcast\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateBroadcast\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateBroadcast\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateBroadcast\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateBroadcast.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateBroadcast\\:\\:rules\\(\\) should return array\\<string, mixed\\> but returns array\\<int\\|string, array\\<int, App\\\\Rules\\\\CustomContentIdsValidation\\|App\\\\Rules\\\\SentAtDifference\\|string\\>\\|string\\>\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateBroadcast.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateChannel.php
+
+		-
+			message: "#^Cannot access property \\$id on App\\\\Models\\\\Channel\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateChannel.php
+
+		-
+			message: "#^Cannot access property \\$id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateChannel.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestUpdateChannel\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateChannel.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateChannel\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateChannel.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateChannel\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateChannel.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateChannel\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateChannel.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateChannel\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateChannel.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateContent.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestUpdateContent\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateContent\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateContent\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateContent\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateContent.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateContent\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateContent.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateMember.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestUpdateMember\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateMember\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateMember\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateMember\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateMember.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateMember\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateMember.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateProfileUser.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Http\\\\Requests\\\\RequestUpdateProfileUser\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateProfileUser.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateProfileUser\\:\\:failedValidation\\(\\) with return type void returns Illuminate\\\\Http\\\\JsonResponse but should not return anything\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateProfileUser.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateProfileUser\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateProfileUser.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateProfileUser\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateProfileUser.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUpdateProfileUser\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUpdateProfileUser.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestUserRegister\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestUserRegister.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendForgotPasswordEmail\\:\\:__construct\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendForgotPasswordEmail.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendForgotPasswordEmail\\:\\:__construct\\(\\) has parameter \\$url with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendForgotPasswordEmail.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendForgotPasswordEmail\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendForgotPasswordEmail.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendForgotPasswordEmail\\:\\:\\$email has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendForgotPasswordEmail.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendForgotPasswordEmail\\:\\:\\$url has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendForgotPasswordEmail.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailDefault\\:\\:__construct\\(\\) has parameter \\$content with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailDefault.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailDefault\\:\\:__construct\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailDefault.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailDefault\\:\\:__construct\\(\\) has parameter \\$thongbao with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailDefault.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailDefault\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailDefault.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendMailDefault\\:\\:\\$content has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailDefault.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendMailDefault\\:\\:\\$email has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailDefault.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendMailDefault\\:\\:\\$thongbao has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailDefault.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailNotify\\:\\:__construct\\(\\) has parameter \\$content with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailNotify.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailNotify\\:\\:__construct\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailNotify.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailNotify\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailNotify.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendMailNotify\\:\\:\\$content has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailNotify.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendMailNotify\\:\\:\\$email has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailNotify.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailWelCome\\:\\:__construct\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailWelCome.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailWelCome\\:\\:__construct\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailWelCome.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendMailWelCome\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailWelCome.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendMailWelCome\\:\\:\\$email has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailWelCome.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendMailWelCome\\:\\:\\$name has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendMailWelCome.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendPasswordNewAdmin\\:\\:__construct\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendPasswordNewAdmin.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendPasswordNewAdmin\\:\\:__construct\\(\\) has parameter \\$new_password with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendPasswordNewAdmin.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendPasswordNewAdmin\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendPasswordNewAdmin.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendPasswordNewAdmin\\:\\:\\$email has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendPasswordNewAdmin.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendPasswordNewAdmin\\:\\:\\$new_password has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendPasswordNewAdmin.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendReminderMail\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendReminderMail.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendReminderMail\\:\\:\\$user has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendReminderMail.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendVerifyEmail\\:\\:__construct\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendVerifyEmail.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendVerifyEmail\\:\\:__construct\\(\\) has parameter \\$url with no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendVerifyEmail.php
+
+		-
+			message: "#^Method App\\\\Jobs\\\\SendVerifyEmail\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendVerifyEmail.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendVerifyEmail\\:\\:\\$email has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendVerifyEmail.php
+
+		-
+			message: "#^Property App\\\\Jobs\\\\SendVerifyEmail\\:\\:\\$url has no type specified\\.$#"
+			count: 1
+			path: app/Jobs/SendVerifyEmail.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\DailyEmail\\:\\:\\$user has no type specified\\.$#"
+			count: 1
+			path: app/Mail/DailyEmail.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\ForgotPassword\\:\\:__construct\\(\\) has parameter \\$url with no type specified\\.$#"
+			count: 1
+			path: app/Mail/ForgotPassword.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\ForgotPassword\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Mail/ForgotPassword.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\ForgotPassword\\:\\:\\$url has no type specified\\.$#"
+			count: 1
+			path: app/Mail/ForgotPassword.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\MailNotify\\:\\:__construct\\(\\) has parameter \\$content with no type specified\\.$#"
+			count: 1
+			path: app/Mail/MailNotify.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\MailNotify\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Mail/MailNotify.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\MailNotify\\:\\:\\$content has no type specified\\.$#"
+			count: 1
+			path: app/Mail/MailNotify.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\MailNotifyDefault\\:\\:__construct\\(\\) has parameter \\$content with no type specified\\.$#"
+			count: 1
+			path: app/Mail/MailNotifyDefault.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\MailNotifyDefault\\:\\:__construct\\(\\) has parameter \\$thongbao with no type specified\\.$#"
+			count: 1
+			path: app/Mail/MailNotifyDefault.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\MailNotifyDefault\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Mail/MailNotifyDefault.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\MailNotifyDefault\\:\\:\\$content has no type specified\\.$#"
+			count: 1
+			path: app/Mail/MailNotifyDefault.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\MailNotifyDefault\\:\\:\\$thongbao has no type specified\\.$#"
+			count: 1
+			path: app/Mail/MailNotifyDefault.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\NotifyMail\\:\\:__construct\\(\\) has parameter \\$name_user with no type specified\\.$#"
+			count: 1
+			path: app/Mail/NotifyMail.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\NotifyMail\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Mail/NotifyMail.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\NotifyMail\\:\\:\\$name_user has no type specified\\.$#"
+			count: 1
+			path: app/Mail/NotifyMail.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\PasswordNewAdmin\\:\\:__construct\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Mail/PasswordNewAdmin.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\PasswordNewAdmin\\:\\:__construct\\(\\) has parameter \\$new_password with no type specified\\.$#"
+			count: 1
+			path: app/Mail/PasswordNewAdmin.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\PasswordNewAdmin\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Mail/PasswordNewAdmin.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\PasswordNewAdmin\\:\\:\\$email has no type specified\\.$#"
+			count: 1
+			path: app/Mail/PasswordNewAdmin.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\PasswordNewAdmin\\:\\:\\$new_password has no type specified\\.$#"
+			count: 1
+			path: app/Mail/PasswordNewAdmin.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\ReminderMail\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Mail/ReminderMail.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\ReminderMail\\:\\:\\$user has no type specified\\.$#"
+			count: 1
+			path: app/Mail/ReminderMail.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\SendPasswordForNewAdmin\\:\\:__construct\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Mail/SendPasswordForNewAdmin.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\SendPasswordForNewAdmin\\:\\:__construct\\(\\) has parameter \\$password with no type specified\\.$#"
+			count: 1
+			path: app/Mail/SendPasswordForNewAdmin.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\SendPasswordForNewAdmin\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Mail/SendPasswordForNewAdmin.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\SendPasswordForNewAdmin\\:\\:\\$email has no type specified\\.$#"
+			count: 1
+			path: app/Mail/SendPasswordForNewAdmin.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\SendPasswordForNewAdmin\\:\\:\\$password has no type specified\\.$#"
+			count: 1
+			path: app/Mail/SendPasswordForNewAdmin.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\VerifyEmail\\:\\:__construct\\(\\) has parameter \\$url with no type specified\\.$#"
+			count: 1
+			path: app/Mail/VerifyEmail.php
+
+		-
+			message: "#^Method App\\\\Mail\\\\VerifyEmail\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Mail/VerifyEmail.php
+
+		-
+			message: "#^Property App\\\\Mail\\\\VerifyEmail\\:\\:\\$url has no type specified\\.$#"
+			count: 1
+			path: app/Mail/VerifyEmail.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Admin\\:\\:getJWTCustomClaims\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Models/Admin.php
+
+		-
+			message: "#^Property App\\\\Models\\\\Admin\\:\\:\\$casts type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Models/Admin.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Broadcast\\:\\:contentBroadcasts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/Broadcast.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Broadcast\\:\\:user\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/Broadcast.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Channel\\:\\:channelStatisticals\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/Channel.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Channel\\:\\:users\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/Channel.php
+
+		-
+			message: "#^Method App\\\\Models\\\\ChannelStatistical\\:\\:channel\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/ChannelStatistical.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Content\\:\\:contentBroadcasts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/Content.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Content\\:\\:contentKeywords\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/Content.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Content\\:\\:user\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/Content.php
+
+		-
+			message: "#^Method App\\\\Models\\\\ContentBroadcast\\:\\:broadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/ContentBroadcast.php
+
+		-
+			message: "#^Method App\\\\Models\\\\ContentBroadcast\\:\\:content\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/ContentBroadcast.php
+
+		-
+			message: "#^Method App\\\\Models\\\\ContentBroadcast\\:\\:user\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/ContentBroadcast.php
+
+		-
+			message: "#^Method App\\\\Models\\\\ContentKeyword\\:\\:content\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/ContentKeyword.php
+
+		-
+			message: "#^Method App\\\\Models\\\\ContentKeyword\\:\\:keyword\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/ContentKeyword.php
+
+		-
+			message: "#^Method App\\\\Models\\\\ContentKeyword\\:\\:user\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/ContentKeyword.php
+
+		-
+			message: "#^Method App\\\\Models\\\\InteractionLog\\:\\:user\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/InteractionLog.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Keyword\\:\\:contentKeywords\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/Keyword.php
+
+		-
+			message: "#^Method App\\\\Models\\\\Keyword\\:\\:user\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/Keyword.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:broadcasts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:contentBroadcasts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:contentKeywords\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:contents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:getJWTCustomClaims\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:interactionLogs\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:keywords\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Property App\\\\Models\\\\User\\:\\:\\$casts type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Call to static method forceScheme\\(\\) on an unknown class App\\\\Providers\\\\URL\\.$#"
+			count: 1
+			path: app/Providers/AppServiceProvider.php
+
+		-
+			message: "#^Cannot access property \\$id on mixed\\.$#"
+			count: 1
+			path: app/Providers/RouteServiceProvider.php
+
+		-
+			message: "#^PHPDoc tag @var above a method has no effect\\.$#"
+			count: 1
+			path: app/Providers/RouteServiceProvider.php
+
+		-
+			message: "#^PHPDoc tag @var does not specify variable name\\.$#"
+			count: 1
+			path: app/Providers/RouteServiceProvider.php
+
+		-
+			message: "#^Cannot call method update\\(\\) on mixed\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:create\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:delete\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:find\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:findBy\\(\\) has parameter \\$filter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:findOneBy\\(\\) has parameter \\$filter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:getQuery\\(\\) has invalid return type App\\\\Repositories\\\\Interfaces\\\\Builder\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:paginate\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:show\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:update\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:update\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BaseRepository\\:\\:with\\(\\) has parameter \\$relations with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Parameter \\#1 \\$abstract of method Illuminate\\\\Foundation\\\\Application\\:\\:make\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Property App\\\\Repositories\\\\BaseRepository\\:\\:\\$model has no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Property App\\\\Repositories\\\\BaseRepository\\:\\:\\$query has no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BaseRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BroadcastInterface\\:\\:getBroadcasts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/BroadcastInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BroadcastInterface\\:\\:getBroadcasts\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BroadcastInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BroadcastRepository\\:\\:getBroadcasts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/BroadcastRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\BroadcastRepository\\:\\:getBroadcasts\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/BroadcastRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\ContentInterface\\:\\:getContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/ContentInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\ContentInterface\\:\\:getContents\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/ContentInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\ContentRepository\\:\\:getContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/ContentRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\ContentRepository\\:\\:getContents\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/ContentRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:createToken\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:createToken\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:createToken\\(\\) has parameter \\$isUser with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:createToken\\(\\) has parameter \\$token with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:deleteUser\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:deleteUser\\(\\) has parameter \\$isUser with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:deleteUser\\(\\) has parameter \\$user with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:findPasswordReset\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:findPasswordReset\\(\\) has parameter \\$email with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:findPasswordReset\\(\\) has parameter \\$isUser with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:findPasswordResetByToken\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:findPasswordResetByToken\\(\\) has parameter \\$token with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:updateToken\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:updateToken\\(\\) has parameter \\$token with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetInterface\\:\\:updateToken\\(\\) has parameter \\$user with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetInterface.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$email\\.$#"
+			count: 2
+			path: app/Repositories/PasswordResetRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetRepository\\:\\:createToken\\(\\) has parameter \\$isUser with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetRepository\\:\\:deleteUser\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetRepository\\:\\:deleteUser\\(\\) has parameter \\$isUser with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetRepository\\:\\:findPasswordReset\\(\\) has parameter \\$isUser with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\PasswordResetRepository\\:\\:updateToken\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/PasswordResetRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\RepositoryInterface\\:\\:create\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Repositories/RepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\RepositoryInterface\\:\\:delete\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/RepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\RepositoryInterface\\:\\:find\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/RepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\RepositoryInterface\\:\\:findBy\\(\\) has parameter \\$filter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Repositories/RepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\RepositoryInterface\\:\\:findOneBy\\(\\) has parameter \\$filter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Repositories/RepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\RepositoryInterface\\:\\:paginate\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/RepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\RepositoryInterface\\:\\:show\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/RepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\RepositoryInterface\\:\\:update\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Repositories/RepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\RepositoryInterface\\:\\:update\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/RepositoryInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\UserInterface\\:\\:getAllUsers\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Repositories/UserInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\UserInterface\\:\\:getAllUsers\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/UserInterface.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\UserRepository\\:\\:getAllUsers\\(\\) has parameter \\$filter with no type specified\\.$#"
+			count: 1
+			path: app/Repositories/UserRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\UserRepository\\:\\:getAllUsers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Repositories/UserRepository.php
+
+		-
+			message: "#^Method App\\\\Rules\\\\CustomContentIdsValidation\\:\\:message\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: app/Rules/CustomContentIdsValidation.php
+
+		-
+			message: "#^Cannot access offset 'success' on mixed\\.$#"
+			count: 1
+			path: app/Rules/ReCaptcha.php
+
+		-
+			message: "#^Method App\\\\Rules\\\\ReCaptcha\\:\\:passes\\(\\) should return bool but returns mixed\\.$#"
+			count: 1
+			path: app/Rules/ReCaptcha.php
+
+		-
+			message: "#^Binary operation \"\\-\" between float\\|int\\|string and float\\|int\\|string results in an error\\.$#"
+			count: 1
+			path: app/Rules/SentAtDifference.php
+
+		-
+			message: "#^Parameter \\#1 \\$time of static method Carbon\\\\Carbon\\:\\:parse\\(\\) expects DateTimeInterface\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: app/Rules/SentAtDifference.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, mixed given\\.$#"
+			count: 1
+			path: app/Rules/Uppercase.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Admin\\:\\:\\$access_token\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Admin\\:\\:\\$expires_in\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Admin\\:\\:\\$token_type\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$email\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:update\\(\\)\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Contracts\\\\Auth\\\\Guard\\:\\:factory\\(\\)\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on array\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Cannot call method paginate\\(\\) on array\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Services\\\\AdminService\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:addManager\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:changeIsBlockManager\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:changeIsBlockManager\\(\\) has parameter \\$id_user with no type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:changeIsBlockManyManager\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:getManagers\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:login\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:logout\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:profile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AdminService\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Parameter \\#2 \\$status of method App\\\\Services\\\\AdminService\\:\\:responseError\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: app/Services/AdminService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Broadcast\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Broadcast\\>\\:\\:\\$content_ids\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Broadcast\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Broadcast\\>\\:\\:\\$contents\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Broadcast\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Broadcast\\>\\:\\:\\$id\\.$#"
+			count: 2
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Broadcast\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Broadcast\\>\\:\\:\\$sender_id\\.$#"
+			count: 3
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 10
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\Broadcast\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Broadcast\\>\\:\\:update\\(\\)\\.$#"
+			count: 2
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Cannot access offset 'type' on mixed\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Cannot access property \\$channel_access_token on App\\\\Models\\\\Channel\\|null\\.$#"
+			count: 2
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Cannot access property \\$channel_id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 9
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Cannot access property \\$content_data on App\\\\Models\\\\Content\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Content\\>\\|null\\.$#"
+			count: 3
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Cannot access property \\$content_data on App\\\\Models\\\\Content\\|null\\.$#"
+			count: 3
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Cannot access property \\$content_data on mixed\\.$#"
+			count: 2
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Cannot access property \\$id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 21
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Cannot access property \\$line_user_id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 2
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Cannot access property \\$role on App\\\\Models\\\\User\\|null\\.$#"
+			count: 5
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Services\\\\BroadcastService\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:addBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:changeIsDeleteBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:changeIsDeleteBroadcast\\(\\) has parameter \\$id_broadcast with no type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:changeIsDeleteManyBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:getAllIdContentChannel\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:getBroadcasts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:getDetailBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:getDetailBroadcast\\(\\) has parameter \\$id_broadcast with no type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:getIdContentChannelNoDelete\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:getIdUserChannel\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:getIdUserChannelGood\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:sendNow\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:testSend\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:updateBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\BroadcastService\\:\\:updateBroadcast\\(\\) has parameter \\$id_broadcast with no type specified\\.$#"
+			count: 1
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|null given\\.$#"
+			count: 3
+			path: app/Services/BroadcastService.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Services/ChannelStatisticalService.php
+
+		-
+			message: "#^Cannot access property \\$channel_id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 4
+			path: app/Services/ChannelStatisticalService.php
+
+		-
+			message: "#^Cannot access property \\$id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Services/ChannelStatisticalService.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Services\\\\ChannelStatisticalService\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Services/ChannelStatisticalService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ChannelStatisticalService\\:\\:Statistical\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ChannelStatisticalService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ChannelStatisticalService\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Services/ChannelStatisticalService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ChannelStatisticalService\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Services/ChannelStatisticalService.php
+
+		-
+			message: "#^Parameter \\#1 \\$time of static method Carbon\\\\Carbon\\:\\:parse\\(\\) expects DateTimeInterface\\|string\\|null, mixed given\\.$#"
+			count: 3
+			path: app/Services/ChannelStatisticalService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Content\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Content\\>\\:\\:\\$content_data\\.$#"
+			count: 6
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Content\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Content\\>\\:\\:\\$user_id\\.$#"
+			count: 2
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Argument of an invalid type object\\{\\}&stdClass supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\Content\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Content\\>\\:\\:update\\(\\)\\.$#"
+			count: 2
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Call to an undefined method Cloudinary\\\\Api\\\\ApiResponse\\:\\:getSecurePath\\(\\)\\.$#"
+			count: 2
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Cannot access property \\$channel_id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 6
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Cannot access property \\$content_data on App\\\\Models\\\\Content\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Content\\>\\|null\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Cannot access property \\$content_type on App\\\\Models\\\\Content\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\Content\\>\\|null\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Cannot access property \\$id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 18
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Cannot access property \\$originalContentUrl on mixed\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Cannot access property \\$role on App\\\\Models\\\\User\\|null\\.$#"
+			count: 4
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Cannot call method getRealPath\\(\\) on array\\<int, Illuminate\\\\Http\\\\UploadedFile\\>\\|Illuminate\\\\Http\\\\UploadedFile\\|null\\.$#"
+			count: 2
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Services\\\\ContentService\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:addContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:changeIsDeleteContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:changeIsDeleteContent\\(\\) has parameter \\$id_content with no type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:changeIsDeleteManyContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:contentDetail\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:contentDetail\\(\\) has parameter \\$id_content with no type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:getAllIdContentChannel\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:getContentForBroadcast\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:getContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:getIdContentChannelNoDelete\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:getIdUserChannel\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:getIdUserChannelGood\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:updateContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ContentService\\:\\:updateContent\\(\\) has parameter \\$id_content with no type specified\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Property App\\\\Models\\\\Content\\:\\:\\$content_data \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: app/Services/ContentService.php
+
+		-
+			message: "#^Call to method find\\(\\) on an unknown class App\\\\Repositories\\\\ExampleInterface\\.$#"
+			count: 1
+			path: app/Services/ExampleService.php
+
+		-
+			message: "#^Call to method getExamples\\(\\) on an unknown class App\\\\Repositories\\\\ExampleInterface\\.$#"
+			count: 1
+			path: app/Services/ExampleService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\ExampleService\\:\\:findExampleById\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: app/Services/ExampleService.php
+
+		-
+			message: "#^Parameter \\$exampleRepository of method App\\\\Services\\\\ExampleService\\:\\:__construct\\(\\) has invalid type App\\\\Repositories\\\\ExampleInterface\\.$#"
+			count: 1
+			path: app/Services/ExampleService.php
+
+		-
+			message: "#^Property App\\\\Services\\\\ExampleService\\:\\:\\$exampleRepository has unknown class App\\\\Repositories\\\\ExampleInterface as its type\\.$#"
+			count: 1
+			path: app/Services/ExampleService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\:\\:\\$access_token\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\:\\:\\$expires_in\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\:\\:\\$token_type\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$channel_id\\.$#"
+			count: 2
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$email\\.$#"
+			count: 3
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$id\\.$#"
+			count: 2
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$line_user_id\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:update\\(\\)\\.$#"
+			count: 2
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Call to an undefined method Cloudinary\\\\Api\\\\ApiResponse\\:\\:getSecurePath\\(\\)\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Contracts\\\\Auth\\\\Guard\\:\\:factory\\(\\)\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot access property \\$avatar on App\\\\Models\\\\User\\|null\\.$#"
+			count: 3
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot access property \\$channel_access_token on App\\\\Models\\\\Channel\\|null\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot access property \\$channel_id on App\\\\Models\\\\Channel\\|null\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot access property \\$channel_id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 7
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot access property \\$channel_secret on App\\\\Models\\\\Channel\\|null\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot access property \\$email on App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\|null\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot access property \\$id on App\\\\Models\\\\User\\|null\\.$#"
+			count: 13
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot access property \\$password on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot access property \\$role on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on array\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot call method getRealPath\\(\\) on array\\<int, Illuminate\\\\Http\\\\UploadedFile\\>\\|Illuminate\\\\Http\\\\UploadedFile\\|null\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot call method paginate\\(\\) on array\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot call method update\\(\\) on App\\\\Models\\\\Channel\\|null\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Cannot call method update\\(\\) on App\\\\Models\\\\User\\|null\\.$#"
+			count: 3
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$messages \\(array\\<int, string\\>\\) of method App\\\\Services\\\\UserService\\:\\:responseErrorWithData\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:addMember\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:changeIsDeleteManyMember\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:changeIsDeleteMember\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:changeIsDeleteMember\\(\\) has parameter \\$id_user with no type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:changePassword\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:forgotSend\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:forgotUpdate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:getInforChannel\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:getMembers\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:isAccountLocked\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:isAccountLocked\\(\\) has parameter \\$user with no type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:login\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:logout\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:profile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:responseErrorValidate\\(\\) has parameter \\$errors with no type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:responseErrorValidate\\(\\) has parameter \\$validator with no type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:updateChannel\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:updateMember\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:updateMember\\(\\) has parameter \\$id_user with no type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\UserService\\:\\:updateProfile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method Illuminate\\\\Hashing\\\\HashManager\\:\\:check\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method Illuminate\\\\Hashing\\\\HashManager\\:\\:make\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Part \\$email \\(mixed\\) of encapsed string cannot be cast to string\\.$#"
+			count: 1
+			path: app/Services/UserService.php
+
+		-
+			message: "#^Variable \\$user in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 1
+			path: app/Services/UserService.php
