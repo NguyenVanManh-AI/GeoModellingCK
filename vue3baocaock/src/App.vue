@@ -1,17 +1,20 @@
 <template>
   <LeafletComp />
+  <CubemapGenerator />
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import LeafletComp from './components/LeafletComp.vue'
+import CubemapGenerator from './components/CubemapGenerator.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    LeafletComp
+    LeafletComp,
+    CubemapGenerator
   }
 }
 </script>

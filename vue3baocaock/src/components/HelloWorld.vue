@@ -9,6 +9,14 @@
     </select>
   </div>
   </div>
+  <div>
+    <label>
+      Upload a panoramic image:
+      <input id="imageInput" type="file" accept="image/*" @change="handleFileChange">
+    </label>
+    <div id="faces"></div>
+    <div id="generating" style="visibility: hidden;">Generating...</div>
+  </div>
   <div ref="threejsContainer" class="threejs-container"></div>
   </div>
 
@@ -76,16 +84,24 @@ export default {
 
       this.loadEnvironmentMap(this.name_map);
     },
-    loadEnvironmentMap(mapName) {
-      const genCubeUrls = (prefix, postfix) => {
-        return [
-          `${prefix}px${postfix}`, `${prefix}nx${postfix}`,
-          `${prefix}py${postfix}`, `${prefix}ny${postfix}`,
-          `${prefix}pz${postfix}`, `${prefix}nz${postfix}`,
-        ];
-      };
+    loadEnvironmentMap() {
+      // const genCubeUrls = (prefix, postfix) => {
+      //   return [
+      //     `${prefix}px${postfix}`, `${prefix}nx${postfix}`,
+      //     `${prefix}py${postfix}`, `${prefix}ny${postfix}`,
+      //     `${prefix}pz${postfix}`, `${prefix}nz${postfix}`,
+      //   ];
+      // };
 
-      const urls = genCubeUrls(mapName + '/', '.png');
+      // const urls = genCubeUrls(mapName + '/', '.png');
+      const urls = [
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743795px.png',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743699nx.png',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743820py.png',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743744ny.png',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743841pz.png',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743771nz.png'
+      ];
       new THREE.CubeTextureLoader().load(urls, (cubeTexture) => {
         this.scene.background = cubeTexture;
         this.cubeCamera.update(this.renderer, this.scene);
