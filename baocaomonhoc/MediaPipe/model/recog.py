@@ -13,7 +13,7 @@ conn = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",
-    database="geomodellingck"
+    database="geobaocaomonhoc"
 )
 cursor = conn.cursor()
 

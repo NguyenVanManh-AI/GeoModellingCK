@@ -13,7 +13,7 @@ async def send_random_value(websocket, path):
             host="localhost",
             user="root",
             password="",
-            database="geomodellingck"
+            database="geobaocaomonhoc"
         )
 
         # Tạo con trỏ để thao tác với cơ sở dữ liệu
