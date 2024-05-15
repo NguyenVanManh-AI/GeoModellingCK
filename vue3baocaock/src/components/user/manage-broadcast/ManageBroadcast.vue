@@ -312,7 +312,7 @@ export default {
     },
 
     setup() {
-        document.title = "Manages Broadcast - Mutilcast | AI System"
+        document.title = "Manages Broadcast - Mutilcast | Geomodelling"
     },
 
     mounted() {

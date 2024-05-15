@@ -71,7 +71,7 @@ export default {
 		}
 	},
 	setup() {
-		document.title = "Admin Login | AI System";
+		document.title = "Admin Login | Geomodelling";
 	},
 	mounted() {
 		var appMain = window.document.getElementById('appMain');

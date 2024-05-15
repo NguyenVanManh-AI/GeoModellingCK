@@ -11,7 +11,7 @@ const { emitEvent } = useEventBus();
 export default {
     name: "InformationChannel",
     setup() {
-        document.title = "Information Channel | AI System";
+        document.title = "Information Channel | Geomodelling";
     },
     mounted() {
         emitEvent('eventTitleHeader', 'Information Channel');

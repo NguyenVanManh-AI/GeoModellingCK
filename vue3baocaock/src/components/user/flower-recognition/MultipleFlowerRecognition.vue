@@ -79,7 +79,7 @@ export default {
         }
     },
     setup() {
-        document.title = "Multiple Flowers Recognition | AI System";
+        document.title = "Multiple Flowers Recognition | Geomodelling";
     },
     async mounted() {
         this.user = JSON.parse(localStorage.getItem('user'));

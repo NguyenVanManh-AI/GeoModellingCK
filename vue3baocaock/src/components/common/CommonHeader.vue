@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div class="title">
-      <span><i class="fa-solid fa-robot"></i> AI System</span><span>/</span><span v-html="title"></span>
+      <span><i class="fa-solid fa-robot"></i> Geomodelling</span><span>/</span><span v-html="title"></span>
     </div>
     <div id="contact">
       <li class="list_contact">
@@ -36,7 +36,7 @@ export default {
   name: "CommonHeader",
   data() {
     return {
-      title: 'AI Advanced',
+      title: 'Geomodelling',
     }
   },
   mounted() {

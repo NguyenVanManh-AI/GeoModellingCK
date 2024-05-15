@@ -2,7 +2,7 @@
   <div class="sidebar" :class="isUserOpened ? 'open' : ''" :style="cssVars" ref="sidebar">
     <div class="logo-details" style="margin: 10px 14px 0 14px;">
       <img src="@/assets/logo.png" alt="menu-logo" class="menu-logo icon" style="" @click="compadmin">
-      <div class="logo_name" @click="compadmin"> AI System </div>
+      <div class="logo_name" @click="compadmin"> GeoModel</div>
       <i style="color: var(--user-color);" class="bx" :class="isUserOpened ? 'bx-menu-alt-right' : 'bx-menu'" id="btn"
         @click="openSiderbar"></i>
     </div>
@@ -18,6 +18,11 @@
             </li>
           </span>
           <span>
+            <li>
+              <router-link class="links" data-path="flower-recognition" :to="{ name: 'FlowerRecognition' }"><i class="fa-solid fa-fan"></i><span class="links_name">Maps Manage</span></router-link>
+            </li>
+          </span>
+          <!-- <span>
             <li>
               <router-link class="links" data-path="flower-recognition" :to="{ name: 'FlowerRecognition' }"><i class="fa-solid fa-fan"></i><span class="links_name">Flowers Recognition</span></router-link>
             </li>
@@ -36,7 +41,7 @@
             <li>
               <router-link class="links" data-path="image-processing-flowers-recognition" :to="{ name: 'IPMultipleFlowerRecognition' }"><i class="fa-solid fa-clover"></i><span class="links_name">Image Processing</span></router-link>
             </li>
-          </span>
+          </span> -->
           <!-- <span :class="{ 'hide': user.role != 'manager' }">
             <li>
               <router-link class="links" data-path="member-account" :to="{ name: 'MemberAccount' }"><i

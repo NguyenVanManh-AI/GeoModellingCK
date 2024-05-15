@@ -179,7 +179,7 @@ export default {
         UpdateInformationChannel
     },
     setup() {
-        document.title = "Member Account | AI System"
+        document.title = "Member Account | Geomodelling"
     },
     data() {
         return {

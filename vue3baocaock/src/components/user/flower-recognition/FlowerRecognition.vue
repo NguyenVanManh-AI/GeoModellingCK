@@ -92,7 +92,7 @@ export default {
         }
     },
     setup() {
-        document.title = "Flowers Recognition | AI System";
+        document.title = "Flowers Recognition | Geomodelling";
     },
     async mounted() {
         this.user = JSON.parse(localStorage.getItem('user'));

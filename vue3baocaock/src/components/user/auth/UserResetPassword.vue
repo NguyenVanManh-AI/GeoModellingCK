@@ -67,7 +67,7 @@ export default {
 		var appMain = window.document.getElementById('appMain');
 		appMain.style.paddingLeft = '0px'
 
-		window.document.title = 'AI System Reset Password | AI System';
+		window.document.title = 'Geomodelling Reset Password | Geomodelling';
 		let urlParams = new URLSearchParams(window.location.search);
 		if (urlParams.has('token')) this.submitPassword.token = urlParams.get('token');
 	},

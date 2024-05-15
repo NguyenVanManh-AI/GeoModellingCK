@@ -73,13 +73,13 @@
                                 placeholder="Email" disabled type="email" class="form-control">
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <!-- <div class="row mt-3">
                         <div class="col-12">
                             <label><i class="fa-brands fa-line"></i> LINE User ID</label>
                             <input class="form-control" disabled v-model="user.line_user_id" placeholder="Username"
                                 type="text">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row mt-3">
                         <div class="col-12">
                             <label><i class="fa-solid fa-user-check"></i> Role</label>
@@ -167,7 +167,7 @@ export default {
         }
     },
     setup() {
-        document.title = "Account Setting | AI System";
+        document.title = "Account Setting | Geomodelling";
     },
     async mounted() {
         this.user = JSON.parse(localStorage.getItem('user'));

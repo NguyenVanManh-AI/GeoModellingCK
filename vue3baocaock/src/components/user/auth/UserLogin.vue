@@ -10,7 +10,7 @@
 			<div id="big">
 				<div class="container">
 					<form @submit.prevent="login()">
-						<h4><i class="fa-solid fa-microchip"></i> AI System</h4><br>
+						<h4><i class="fa-solid fa-microchip"></i> Geomodelling</h4><br>
 						<div class="input-form">
 							<input v-model="loginUser.email" required>
 							<div class="underline"></div>
@@ -113,7 +113,7 @@ export default {
 		}
 	},
 	setup() {
-		document.title = "AI System | AI System";
+		document.title = "Geomodelling | Geomodelling";
 	},
 	mounted() {
 		var appMain = window.document.getElementById('appMain');
