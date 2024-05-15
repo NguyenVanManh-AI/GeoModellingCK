@@ -53,6 +53,7 @@
             </a>
           </output>
         </div>
+        <button @click="uploadImages">Upload Images</button>
       </section>
     </section>
   </template>
@@ -68,8 +69,10 @@
       const generating = ref(false);
       const faces = ref([]);
   
+      var fullfile ;
       const loadImage = (event) => {
         const file = event.target.files[0];
+        fullfile = file;
   
         if (!file) return;
   
@@ -138,15 +141,65 @@
   
         worker.postMessage({ ...options, face: faceName });
       };
+      const uploadImages = () => {
+  if (faces.value.length !== 6) {
+    console.error("You must generate all 6 faces before uploading.");
+    return;
+  }
+
+  const formData = new FormData();
+  const promises = [];
+
+  faces.value.forEach(face => {
+    promises.push(
+      fetch(face.url)
+        .then(response => response.blob())
+        .then(blob => {
+          formData.append(face.faceName, blob);
+          console.log(blob);
+        })
+        .catch(error => {
+          console.error('Error fetching image:', error);
+        })
+    );
+  });
+
+  console.log(formData);
+  Promise.all(promises)
+    .then(() => {
+      formData.append('imagefull', fullfile);
+      formData.append('address', "Khoa CNTT Bach Khoa");
+      formData.append('coordinates', JSON.stringify([47.41322, -1.219482]));
+
+      fetch('http://localhost:8000/api/map/add', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error uploading images.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Images uploaded successfully.', data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+};
+
   
-      return {
-        rotation,
-        interpolation,
-        format,
-        generating,
-        faces,
-        loadImage
-      };
+    return {
+      rotation,
+      interpolation,
+      format,
+      generating,
+      faces,
+      loadImage,
+      uploadImages
+    };
     }
   };
   </script>

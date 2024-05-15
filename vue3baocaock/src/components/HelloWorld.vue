@@ -95,12 +95,12 @@ export default {
 
       // const urls = genCubeUrls(mapName + '/', '.png');
       const urls = [
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743795px.png',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743699nx.png',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743820py.png',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743744ny.png',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743841pz.png',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715743771nz.png'
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788198blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788200blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788201blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788203blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788206blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788207blob'
       ];
       new THREE.CubeTextureLoader().load(urls, (cubeTexture) => {
         this.scene.background = cubeTexture;

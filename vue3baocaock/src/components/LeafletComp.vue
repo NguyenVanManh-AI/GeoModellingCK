@@ -41,6 +41,10 @@
         selectedPoint: null,
       };
     },
+    mounted() {
+      console.log(this.points[0]['coordinates']);
+      console.log(JSON.stringify(this.points[0]['coordinates']));
+    },
     methods: {
       showPopup(point) {
         // Hiển thị popup khi click vào marker
