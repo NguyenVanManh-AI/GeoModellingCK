@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BroadcastController;
 use App\Http\Controllers\ChannelStatisticalController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\TestSwaggerController;
 use App\Http\Controllers\UploadFileS3Controller;
 use App\Http\Controllers\UserController;
@@ -101,3 +102,12 @@ Route::prefix('s3')->controller(UploadFileS3Controller::class)->group(function (
 });
 
 Route::post('add-post', [TestSwaggerController::class, 'createPost']);
+
+Route::prefix('map')->controller(MapController::class)->group(function () {
+    Route::get('all', 'allMap');
+    Route::get('detail/{id_map}', 'mapDetail');
+    Route::post('add', 'addMap');
+    Route::post('update/{id_map}', 'updateMap');
+    Route::post('delete/{id_map}', 'deleteMap');
+    Route::post('delete-many', 'deleteManyMap');
+});
