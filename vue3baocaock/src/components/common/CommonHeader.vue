@@ -13,9 +13,9 @@
             class="fa-brands fa-linkedin"></i></a>
       </li>
       <div class="email-phone">
-        <li class="contact_email"><a href="mailto:ai.system.support@gmail.com"><i class="fa-solid fa-envelope"></i> <span
+        <li class="contact_email"><a href="mailto:geomodelling.support@gmail.com"><i class="fa-solid fa-envelope"></i> <span
               class="hidde">Email:</span>
-            <span> ai.system.support@gmail.com</span></a></li>
+            <span> geomodelling.support@gmail.com</span></a></li>
         <li class="contact_phone"><a href="tel:+84702518919"><i class="fa-solid fa-phone"></i> <span
               class="hidde">Hotline
               24/7 Phone:</span>

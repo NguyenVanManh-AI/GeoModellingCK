@@ -21,6 +21,8 @@ import VueTippy from 'vue-tippy'
 import 'tippy.js/dist/tippy.css';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
+import * as THREE from 'three';
+import 'leaflet/dist/leaflet.css';
 
 const app = createApp(App);
 app.use(router);
@@ -35,4 +37,5 @@ app.use(Particles)
 app.use(VueDatePicker)
 app.use(VueTippy)
 app.use(VueSweetalert2)
+app.use(THREE)
 app.mount('#app')

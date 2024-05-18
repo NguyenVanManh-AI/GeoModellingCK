@@ -22,6 +22,9 @@ import ManageBroadcast from '@/components/user/manage-broadcast/ManageBroadcast'
 import StatisticalChannel from '@/components/user/statistical-channel/StatisticalChannel'
 import UserLogin from '@/components/user/auth/UserLogin'
 import UserResetPassword from '@/components/user/auth/UserResetPassword'
+import MapManage from '@/components/user/geo/MapManage'
+import ViewDetailMap from '@/components/user/geo/ViewDetailMap'
+import ViewMap from '@/components/user/geo/ViewMap'
 
 // other 
 import CommonNotFound from '@/components/common/CommonNotFound'
@@ -75,12 +78,15 @@ const routes = [
             { path: 'flower-multiple-recognition', name: 'MultipleFlowerRecognition', component: MultipleFlowerRecognition },
             { path: 'image-processing-flowers-recognition', name: 'IPMultipleFlowerRecognition', component: IPMultipleFlowerRecognition},
             { path: 'alzheimers-recognition', name: 'AlzheimersRecognition', component: AlzheimersRecognition },
+            { path: 'manage-map', name: 'MapManage', component: MapManage },
+            { path: 'detail-map/:id', name: 'ViewDetailMap', component: ViewDetailMap },
             { path: 'member-account', name: 'MemberAccount', component: MemberAccount },
             { path: 'manage-content', name: 'ManageContent', component: ManageContent },
             { path: 'manage-broadcast', name: 'ManageBroadcast', component: ManageBroadcast },
             { path: 'statistical-channel', name: 'StatisticalChannel', component: StatisticalChannel },
         ]
     },
+    { path: '/view-map', component: ViewMap, name: 'ViewMap'},
     {
         path: '/admin',
         component: AdminMain,

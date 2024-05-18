@@ -19,7 +19,7 @@
           </span>
           <span>
             <li>
-              <router-link class="links" data-path="flower-recognition" :to="{ name: 'FlowerRecognition' }"><i class="fa-solid fa-fan"></i><span class="links_name">Maps Manage</span></router-link>
+              <router-link class="links" data-path="manage-map" :to="{ name: 'MapManage' }"><i class="fa-solid fa-map-location-dot"></i><span class="links_name">Maps Manage</span></router-link>
             </li>
           </span>
           <!-- <span>
