@@ -1,56 +1,47 @@
 <template>
     <div>
-        <div class="modal fade" id="modal-delete-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modal-delete-map" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true" @click="closeModal()">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><i class="fa-solid fa-triangle-exclamation"></i>
                             Warning</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="resetData()">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            @click="resetData()">
                             <span aria-hidden="true"><i class="fa-regular fa-circle-xmark"></i></span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-warning" role="alert">
-                            <p class="mb-2">Warning: These contents will be moved to <strong>{{
-                                mapSelected.is_delete ==
-                                    0 ? 'Deleted' : 'Normal' }}</strong> status in the system !</p>
-                            <div class="ml-3">
-                                <p> Creator : <strong>{{ mapSelected.creator_name }}</strong> </p>
-                                <p> Updater : <strong>{{ mapSelected.updater_name }}</strong> </p>
-                            </div>
-                            <div v-if="mapSelected.content_type == 'text'">
-                                <div class="ml-3">
-                                    Content Type : <strong class="text-uppercase colorText"> {{
-                                mapSelected.content_type
-                            }} </strong><br>
-                                    Content Data : <strong class="contentText">{{ mapSelected.content_data.text
-                                        }}</strong>
+                            <p class="mb-2">Warning: This image will be permanently deleted from the system !</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Address</label>
+                                    <input type="text" readonly class="form-control" id="exampleFormControlInput1"
+                                        v-model="mapSelected.address">
                                 </div>
                             </div>
-                            <div class="imgInTable" v-if="mapSelected.content_type == 'image'">
-                                <div class="ml-3">
-                                    Content Type : <strong class="text-uppercase colorImage"> {{
-                                mapSelected.content_type }} </strong><br>
-                                    <div class="innerData">
-                                        Content Data : <img :src="mapSelected.content_data.originalContentUrl"
-                                            alt="Image" />
-                                    </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Email address</label>
+                                    <input type="text" readonly v-model="mapSelected.coordinates" class="form-control"
+                                        id="exampleFormControlInput1">
                                 </div>
                             </div>
+                        </div>
+                        <div>
+                            <img :src="mapSelected.imagefull ? mapSelected.imagefull : require('@/assets/pandora360.png')"
+                                alt="">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" ref="closeButton"
                             id="close" @click="resetData()">Close</button>
-                        <button type="button"
-                            :class="{ 'btn': true, 'btn-outline-danger': mapSelected.is_delete == 0, 'btn-outline-success': mapSelected.is_delete == 1 }"
-                            @click="deleteBook">
-                            <i
-                                :class="{ 'fa-solid': true, 'fa-trash': mapSelected.is_delete == 0, 'fa-trash-arrow-up': mapSelected.is_delete == 1 }"></i>
-                            {{ mapSelected.is_delete == 0 ? 'Delete' : 'Backup' }}
-                        </button>
+                        <button type="button" class="btn btn-outline-danger" @click="deleteBook"><i
+                                class="fa-solid fa-trash"></i> Delete </button>
                     </div>
                 </div>
             </div>
@@ -72,12 +63,16 @@ export default {
     data() {
         return {
             mapSelected: {
-                id: '',
-                content_type: '',
-                content_data: null,
-                is_delete: null,
-                creator_name: null,
-                updater_name: null,
+                id: null,
+                address: null,
+                coordinates: null,
+                imagefull: null,
+                pz: null,
+                nz: null,
+                px: null,
+                nx: null,
+                py: null,
+                ny: null,
             },
             dataSubmit: {
                 is_delete: '',
@@ -94,11 +89,11 @@ export default {
             try {
                 if (this.mapSelected.is_delete == 0) this.dataSubmit.is_delete = 1;
                 else this.dataSubmit.is_delete = 0;
-                const { messages } = await UserRequest.post('content/delete-content/' + this.mapSelected.id, this.dataSubmit, true);
+                const { messages } = await UserRequest.post('map/delete/' + this.mapSelected.id, this.dataSubmit, true);
                 emitEvent('eventSuccess', messages[0]);
                 const closeButton = this.$refs.closeButton;
                 closeButton.click();
-                emitEvent('eventUpdateIsDeleteContent', this.mapSelected.id);
+                emitEvent('eventRegetMaps', '');
             }
             catch (error) {
                 if (error.messages) emitEvent('eventError', error.messages[0]);
@@ -110,14 +105,18 @@ export default {
             }
         },
         resetData: function () {
-            this.mapSelected = {
-                id: '',
-                content_type: '',
-                content_data: null,
-                is_delete: null,
-                creator_name: null,
-                updater_name: null,
-            };
+            // this.mapSelected = {
+            //     id : null,
+            //     address : null,
+            //     coordinates : null,
+            //     imagefull: null,
+            //     pz : null,
+            //     nz : null,
+            //     px : null,
+            //     nx : null,
+            //     py : null,
+            //     ny : null,
+            // };
         },
     }
 

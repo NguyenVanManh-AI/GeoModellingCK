@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="modal fade" id="modal-delete-many-map" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="modal-delete-many-map" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -13,33 +13,28 @@
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-warning" role="alert">
-                            <p class="mb-2">Warning: These contents will be moved to <strong>{{ isDeleteChangeMany == 1 ?
-                                'Deleted' : 'Normal' }}</strong> status in the system !</p>
-                            <div v-for="(content, index) in contents" :key="index">
-                                <li class="mb-2" v-if="selectedMaps.includes(content.id)">
-                                    <p>{{ index + 1 }}. Creator : <strong>{{ content.creator_name }}</strong></p>
-                                    <div class="pl-6">
-                                        <div class="ml-3">
-                                            <p> Updater : <strong>{{ content.updater_name }}</strong> </p>
-                                        </div>
-                                        <div v-if="content.content_type == 'text'">
-                                            <div class="ml-3">
-                                                Content Type : <strong class="text-uppercase colorText"> {{
-                                                    content.content_type }} </strong><br>
-                                                Content Data : <strong class="text-info">{{ content.content_data.text
-                                                }}</strong>
+                            <p class="mb-2">Warning: This images will be permanently deleted from the system !</p>
+                            <div v-for="(map, index) in maps" :key="index">
+                                <li class="mb-2" v-if="selectedMaps.includes(map.id)">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Address</label>
+                                                <input type="text" readonly class="form-control"
+                                                    id="exampleFormControlInput1" :value="map.address">
                                             </div>
                                         </div>
-                                        <div class="imgInTable" v-if="content.content_type == 'image'">
-                                            <div class="ml-3">
-                                                Content Type : <strong class="text-uppercase colorImage"> {{
-                                                    content.content_type }} </strong><br>
-                                                <div class="innerData">
-                                                    Content Data : <img :src="content.content_data.originalContentUrl"
-                                                        alt="Image" />
-                                                </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Email address</label>
+                                                <input type="text" readonly :value="map.coordinates"
+                                                    class="form-control" id="exampleFormControlInput1">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div>
+                                        <img :src="map.imagefull ? map.imagefull : require('@/assets/pandora360.png')"
+                                            alt="">
                                     </div>
                                     <hr class="mt-2">
                                 </li>
@@ -49,12 +44,8 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" ref="closeButton"
                             id="close">Close</button>
-                        <button type="button"
-                            :class="{ 'btn': true, 'btn-outline-danger': isDeleteChangeMany == 1, 'btn-outline-success': isDeleteChangeMany == 0 }"
-                            @click="changeIsDeleteMany">
-                            <i
-                                :class="{ 'fa-solid': true, 'fa-trash': isDeleteChangeMany == 1, 'fa-trash-arrow-up': isDeleteChangeMany == 0 }"></i>
-                            {{ isDeleteChangeMany == 1 ? 'Delete' : 'Backup' }}
+                        <button type="button" class="btn btn-outline-danger" @click="changeIsDeleteMany"> <i
+                                class="fa-solid fa-trash}"></i> Delete
                         </button>
                     </div>
                 </div>
@@ -73,30 +64,28 @@ export default {
     name: "DeleteManyMap",
     props: {
         selectedMaps: Array,
-        isDeleteChangeMany: Number,
     },
     components: {
 
     },
     data() {
         return {
-            contents: null,
+            maps: null,
         }
     },
     mounted() {
-        onEvent('selectManyContent', (contents) => {
-            this.contents = contents;
+        onEvent('selectManyMap', (maps) => {
+            this.maps = maps;
         });
     },
     methods: {
         changeIsDeleteMany: async function () {
             const selectedMapsArray = Object.values(this.selectedMaps);
             var data = {
-                ids_content: selectedMapsArray,
-                is_delete: this.isDeleteChangeMany
+                ids_map: selectedMapsArray,
             }
             try {
-                const { messages } = await UserRequest.post('content/delete-many-content', data, true);
+                const { messages } = await UserRequest.post('map/delete-many', data, true);
                 emitEvent('eventSuccess', messages[0]);
                 emitEvent('eventRegetMaps', '');
                 const closeButton = this.$refs.closeButton;

@@ -1,13 +1,10 @@
 <template>
     <div id="main">
         <div>
-            <h3 class="title-channel"><i class="fa-regular fa-image"></i> Manage Map </h3>
+            <h3 class="title-channel"><i class="fa-regular fa-image"></i> Manage Map of System </h3>
         </div>
         <div class="ml-2 mt-2">
             <div class="mt-3">
-                <div class="mb-2">
-                    <div class="color-title"><i class="fa-solid fa-bars-staggered"></i> Manage Map of System</div>
-                </div>
                 <div class="row m-0 pb-2 d-flex justify-content-end gap-2" id="search-sort">
                     <div class="pl-0" id="page">
                         <select content="Pagination" v-tippy class="form-control " v-model="big_search.perPage">
@@ -38,23 +35,19 @@
                                 placeholder="Search...">
                         </div>
                     </div>
+                    <div class="pr-0 " v-if="selectedMaps.length > 0">
+                        <div class="input-group">
+                            <button @click="changeDeleteManyMap()" content="Delete Many Map" v-tippy
+                                data-toggle="modal" data-target="#modal-delete-many-map" type="button"
+                                class="btn btn-outline-danger mr-1 form-control"><i
+                                    class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
                     <div class="mr-3">
                         <div class="input-group ">
                             <button content="Add Map" v-tippy data-toggle="modal" data-target="#modal-add-map"
                                 type="button" class="btn btn-success form-control"><i
                                     class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="pr-0 mr-3" v-if="selectedMaps.length > 0">
-                        <div class="input-group">
-                            <button @click="changeDeleteManyMap(1)" content="Delete Many Content" v-tippy
-                                data-toggle="modal" data-target="#modal-delete-many-map" type="button"
-                                class="btn btn-outline-danger mr-1 form-control"><i
-                                    class="fa-solid fa-trash"></i></button>
-                            <button @click="changeDeleteManyMap(0)" content="Backup Many Content" v-tippy
-                                data-toggle="modal" data-target="#modal-delete-many-map" type="button"
-                                class="btn btn-outline-success form-control"><i
-                                    class="fa-solid fa-trash-arrow-up"></i></button>
                         </div>
                     </div>
                 </div>
@@ -120,8 +113,7 @@
                 <MapAdd></MapAdd>
                 <MapUpdate :mapSelected="mapSelected"></MapUpdate>
                 <DeleteMap :mapSelected="mapSelected"></DeleteMap>
-                <DeleteMap :mapSelected="mapSelected"></DeleteMap>
-                <DeleteManyMap :isDeleteChangeMany="isDeleteChangeMany" :selectedMaps="selectedMaps"></DeleteManyMap>
+                <DeleteManyMap :selectedMaps="selectedMaps"></DeleteManyMap>
             </div>
         </div>
     </div>
@@ -163,9 +155,6 @@ export default {
                 page: 1,
                 typesort: 'new',
                 sortlatest: 'true',
-                is_delete: '0',
-                content_type: 'all',
-                role: 'all',
             },
             query: '',
             maps: [],
@@ -201,28 +190,8 @@ export default {
             page: searchParams.get('page') || 1,
             typesort: searchParams.get('typesort') || 'new',
             sortlatest: searchParams.get('sortlatest') || 'true',
-            is_delete: searchParams.get('is_delete') || '0',
-            role: searchParams.get('role') || 'all',
-            content_type: searchParams.get('content_type') || 'all',
         }
         this.getMaps();
-        onEvent('updateContentSuccess', (contentUpdate) => {
-            this.contents.forEach(content => {
-                if (content.id == contentUpdate.id) {
-                    content.name = contentUpdate.name;
-                    content.email = contentUpdate.email;
-                }
-            });
-        });
-        onEvent('eventUpdateIsDeleteMap', (id_content) => {
-            this.contents.forEach(content => {
-                if (content.id == id_content) {
-                    if (content.is_delete == 0) content.is_delete = 1;
-                    else content.is_delete = 0;
-                }
-            });
-        });
-
         onEvent('eventRegetMaps', () => {
             this.getMaps();
         });
@@ -289,29 +258,24 @@ export default {
             this.mapSelected = mapSelected;
         },
 
-        isSelected(contentId) {
-            return this.selectedMaps.includes(contentId);
+        isSelected(mapId) {
+            return this.selectedMaps.includes(mapId);
         },
 
-        handleSelect: function (contentId) {
-            const index = this.selectedMaps.indexOf(contentId);
-            if (index === -1) this.selectedMaps.push(contentId);
+        handleSelect: function (mapId) {
+            const index = this.selectedMaps.indexOf(mapId);
+            if (index === -1) this.selectedMaps.push(mapId);
             else this.selectedMaps.splice(index, 1);
         },
 
         selectAll: function () {
             const checkbox = this.$refs.selectAllCheckbox;
-            if (checkbox.checked) this.selectedMaps = this.contents.map(content => content.id);
+            if (checkbox.checked) this.selectedMaps = this.maps.map(map => map.id);
             else this.selectedMaps = [];
         },
 
-        changeIsDelete: async function (content) {
-            this.mapSelected = content;
-        },
-
-        changeDeleteManyMap: function (is_delete) {
-            emitEvent('selectManyContent', this.contents);
-            this.isDeleteChangeMany = is_delete;
+        changeDeleteManyMap: function () {
+            emitEvent('selectManyMap', this.maps);
         }
 
     },
