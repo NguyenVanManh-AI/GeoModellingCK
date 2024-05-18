@@ -57,7 +57,7 @@ class MapController extends Controller
         try {
             $orderBy = $request->typesort ?? 'new';
             switch ($orderBy) {
-                case 'address':
+                case 'name':
                     $orderBy = 'address';
                     break;
 
