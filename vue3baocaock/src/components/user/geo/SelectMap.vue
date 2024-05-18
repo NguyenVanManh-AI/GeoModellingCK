@@ -1,60 +1,55 @@
 <template>
-    <div style="height: 600px; width: 800px">
-      <l-map ref="map" v-model:zoom="zoom" :center="[16.075017, 108.1532003]">
-        <l-tile-layer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          layer-type="base"
-          name="OpenStreetMap"
-        ></l-tile-layer>
-  
-        <!-- Hiển thị các marker từ danh sách điểm -->
-        <l-marker v-for="(point, index) in points" :key="index" :lat-lng="point.coordinates" @click="showPopup(point)">
-          <l-popup :content="point.name"></l-popup>
-        </l-marker>
-  
-        <!-- Popup để hiển thị thông tin của điểm -->
-        <!-- <l-popup :lat-lng="selectedPoint.coordinates" :content="selectedPoint.name" v-if="selectedPoint">
-        </l-popup> -->
-      </l-map>
+    <div style="height: 80vh; width: 100%">
+        <l-map ref="map" v-model:zoom="zoom" :center="center">
+            <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" layer-type="base"
+                name="OpenStreetMap"></l-tile-layer>
+
+            <!-- Hiển thị các marker từ danh sách điểm -->
+            <l-marker v-for="(map, index) in maps" :key="index" :lat-lng="map.coordinates" @click="showPopup(map)">
+                <l-popup>{{ map.address }}</l-popup>
+                <l-tooltip>{{ map.address }}</l-tooltip>
+            </l-marker>
+        </l-map>
     </div>
-  </template>
-  
-  <script>
-  import "leaflet/dist/leaflet.css";
-  import { LMap, LTileLayer, LMarker, LPopup } from "@vue-leaflet/vue-leaflet";
-  
-  export default {
+</template>
+
+<script>
+import "leaflet/dist/leaflet.css";
+import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "@vue-leaflet/vue-leaflet";
+import useEventBus from '@/composables/useEventBus'
+const { emitEvent } = useEventBus();
+
+export default {
     name: "SelectMap",
+    props : {
+        maps: Array,
+    },
     components: {
-      LMap,
-      LTileLayer,
-      LMarker,
-      LPopup,
+        LMap,
+        LTileLayer,
+        LMarker,
+        LPopup,
+        LTooltip,
     },
     data() {
-      return {
-        zoom: 12,
-        points: [
-          { name: "Địa điểm 1", coordinates: [16.0639056, 108.2466932] },
-          { name: "Địa điểm 2", coordinates: [16.0515477, 108.2455815] },
-          { name: "Địa điểm 3", coordinates: [16.075017, 108.1532003] },
-        ],
-        selectedPoint: null,
-      };
+        return {
+            zoom: 12,
+            selectedMap: null,
+            center:[16.074954, 108.153419],
+        };
     },
     mounted() {
-      console.log(this.points[0]['coordinates']);
-      console.log(JSON.stringify(this.points[0]['coordinates']));
+
     },
     methods: {
-      showPopup(point) {
-        // Hiển thị popup khi click vào marker
-        this.selectedPoint = point;
-        console.log(point);
-      },
+        showPopup(map) {
+            this.selectedMap = map;
+            console.log(map);
+            emitEvent('selectPoint', map);
+        },
     },
-  };
-  </script>
-  
-  <style></style>
-  
+};
+</script>
+<style scoped>
+
+</style>

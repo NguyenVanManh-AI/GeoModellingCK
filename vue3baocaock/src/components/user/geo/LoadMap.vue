@@ -1,20 +1,12 @@
 <template>
-  <div id="main">
-    <div id="left">
-    <div class="form-group">
-    <label for="exampleFormControlSelect1">Select Map</label>
-    <select @change="loadMap" v-model="name_map" class="form-control" id="exampleFormControlSelect1">
-      <option value="bachkhoa">bachkhoa</option>
-      <option value="pisa">pisa</option>
-    </select>
-  </div>
-  </div>
-  <div ref="threejsContainer" class="threejs-container"></div></div>
+  <div><div ref="threejsContainer" class="threejs-container"></div></div>
 </template>
 
 <script>
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import useEventBus from '@/composables/useEventBus'
+const { onEvent } = useEventBus();
 
 export default {
   name: 'LoadMap',
@@ -25,12 +17,28 @@ export default {
       camera: null,
       cubeCamera: null,
       lightProbe: null,
-      name_map: "bachkhoa",
+      urls : [
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788198blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788200blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788201blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788203blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788206blob',
+        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788207blob'
+      ],
     };
   },
   mounted() {
     this.init();
     window.addEventListener('resize', this.onWindowResize);
+    onEvent('selectPoint', (map) => {
+      console.log(map);
+      this.urls = [
+        map.px, map.nx,
+        map.py, map.ny,
+        map.pz, map.nz
+      ];
+      this.loadMap();
+    });
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.onWindowResize);
@@ -71,28 +79,7 @@ export default {
       // Light Probe
       this.lightProbe = new THREE.LightProbe();
       this.scene.add(this.lightProbe);
-
-      this.loadEnvironmentMap(this.name_map);
-    },
-    loadEnvironmentMap() {
-      // const genCubeUrls = (prefix, postfix) => {
-      //   return [
-      //     `${prefix}px${postfix}`, `${prefix}nx${postfix}`,
-      //     `${prefix}py${postfix}`, `${prefix}ny${postfix}`,
-      //     `${prefix}pz${postfix}`, `${prefix}nz${postfix}`,
-      //   ];
-      // };
-
-      // const urls = genCubeUrls(mapName + '/', '.png');
-      const urls = [
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788198blob',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788200blob',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788201blob',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788203blob',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788206blob',
-        'https://linebotpro.s3.us-east-2.amazonaws.com/linebot/1715788207blob'
-      ];
-      new THREE.CubeTextureLoader().load(urls, (cubeTexture) => {
+      new THREE.CubeTextureLoader().load(this.urls, (cubeTexture) => {
         this.scene.background = cubeTexture;
         this.cubeCamera.update(this.renderer, this.scene);
         this.renderScene();
@@ -142,18 +129,12 @@ export default {
 };
 </script>
 <style scoped>
-#left {
-  width: 40vw;
-}
 .threejs-container {
-  width: 60vw;
-  height: 100vh;
+    width: 100%;
+    height: 100vh;
 }
 .threejs-container canvas {
   width: 100% !important;
   height: 100% !important;
-}
-#main {
-  display: flex;
 }
 </style>

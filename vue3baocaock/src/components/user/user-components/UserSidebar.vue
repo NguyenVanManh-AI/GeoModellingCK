@@ -22,6 +22,11 @@
               <router-link class="links" data-path="manage-map" :to="{ name: 'MapManage' }"><i class="fa-solid fa-map-location-dot"></i><span class="links_name">Maps Manage</span></router-link>
             </li>
           </span>
+          <span>
+            <li>
+              <a class="links" @click="gotoViewMap"><i class="fa-solid fa-earth-americas"></i><span class="links_name">View Maps</span></a>
+            </li>
+          </span>
           <!-- <span>
             <li>
               <router-link class="links" data-path="flower-recognition" :to="{ name: 'FlowerRecognition' }"><i class="fa-solid fa-fan"></i><span class="links_name">Flowers Recognition</span></router-link>
@@ -128,6 +133,9 @@ export default {
     }
   },
   methods: {
+    gotoViewMap:function () {
+      window.location = window.location.origin + '/view-map';
+    },
     openSiderbar: function () {
       this.isUserOpened = !this.isUserOpened;
       localStorage.setItem('isUserOpened', this.isUserOpened);

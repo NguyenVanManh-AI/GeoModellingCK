@@ -211,11 +211,12 @@ export default {
             window.history.pushState({}, null, this.query);
 
             try {
-                const { data } = await UserRequest.get('map/all' + this.query)
+                const { data, messages } = await UserRequest.get('map/all' + this.query)
                 this.maps = data.data
                 this.total = data.total;
                 this.last_page = data.last_page;
                 this.isLoading = false;
+                emitEvent('eventSuccess', messages[0]);
             }
             catch (error) {
                 if (error.messages) emitEvent('eventError', error.messages[0]);
