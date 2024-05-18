@@ -1,55 +1,60 @@
 <template>
     <div>
-        <div class="modal fade" id="modal-delete-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true" @click="closeModal()">
+        <div class="modal fade" id="modal-delete-many-map" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><i class="fa-solid fa-triangle-exclamation"></i>
                             Warning</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="resetData()">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true"><i class="fa-regular fa-circle-xmark"></i></span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-warning" role="alert">
-                            <p class="mb-2">Warning: These contents will be moved to <strong>{{
-                                contentSelected.is_delete ==
-                                    0 ? 'Deleted' : 'Normal' }}</strong> status in the system !</p>
-                            <div class="ml-3">
-                                <p> Creator : <strong>{{ contentSelected.creator_name }}</strong> </p>
-                                <p> Updater : <strong>{{ contentSelected.updater_name }}</strong> </p>
-                            </div>
-                            <div v-if="contentSelected.content_type == 'text'">
-                                <div class="ml-3">
-                                    Content Type : <strong class="text-uppercase colorText"> {{
-                                contentSelected.content_type
-                            }} </strong><br>
-                                    Content Data : <strong class="contentText">{{ contentSelected.content_data.text
-                                        }}</strong>
-                                </div>
-                            </div>
-                            <div class="imgInTable" v-if="contentSelected.content_type == 'image'">
-                                <div class="ml-3">
-                                    Content Type : <strong class="text-uppercase colorImage"> {{
-                                contentSelected.content_type }} </strong><br>
-                                    <div class="innerData">
-                                        Content Data : <img :src="contentSelected.content_data.originalContentUrl"
-                                            alt="Image" />
+                            <p class="mb-2">Warning: These contents will be moved to <strong>{{ isDeleteChangeMany == 1 ?
+                                'Deleted' : 'Normal' }}</strong> status in the system !</p>
+                            <div v-for="(content, index) in contents" :key="index">
+                                <li class="mb-2" v-if="selectedMaps.includes(content.id)">
+                                    <p>{{ index + 1 }}. Creator : <strong>{{ content.creator_name }}</strong></p>
+                                    <div class="pl-6">
+                                        <div class="ml-3">
+                                            <p> Updater : <strong>{{ content.updater_name }}</strong> </p>
+                                        </div>
+                                        <div v-if="content.content_type == 'text'">
+                                            <div class="ml-3">
+                                                Content Type : <strong class="text-uppercase colorText"> {{
+                                                    content.content_type }} </strong><br>
+                                                Content Data : <strong class="text-info">{{ content.content_data.text
+                                                }}</strong>
+                                            </div>
+                                        </div>
+                                        <div class="imgInTable" v-if="content.content_type == 'image'">
+                                            <div class="ml-3">
+                                                Content Type : <strong class="text-uppercase colorImage"> {{
+                                                    content.content_type }} </strong><br>
+                                                <div class="innerData">
+                                                    Content Data : <img :src="content.content_data.originalContentUrl"
+                                                        alt="Image" />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <hr class="mt-2">
+                                </li>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" ref="closeButton"
-                            id="close" @click="resetData()">Close</button>
+                            id="close">Close</button>
                         <button type="button"
-                            :class="{ 'btn': true, 'btn-outline-danger': contentSelected.is_delete == 0, 'btn-outline-success': contentSelected.is_delete == 1 }"
-                            @click="deleteBook">
+                            :class="{ 'btn': true, 'btn-outline-danger': isDeleteChangeMany == 1, 'btn-outline-success': isDeleteChangeMany == 0 }"
+                            @click="changeIsDeleteMany">
                             <i
-                                :class="{ 'fa-solid': true, 'fa-trash': contentSelected.is_delete == 0, 'fa-trash-arrow-up': contentSelected.is_delete == 1 }"></i>
-                            {{ contentSelected.is_delete == 0 ? 'Delete' : 'Backup' }}
+                                :class="{ 'fa-solid': true, 'fa-trash': isDeleteChangeMany == 1, 'fa-trash-arrow-up': isDeleteChangeMany == 0 }"></i>
+                            {{ isDeleteChangeMany == 1 ? 'Delete' : 'Backup' }}
                         </button>
                     </div>
                 </div>
@@ -57,70 +62,51 @@
         </div>
     </div>
 </template>
-
 <script>
 
 import UserRequest from '@/restful/UserRequest';
 import useEventBus from '@/composables/useEventBus';
+
 const { emitEvent, onEvent } = useEventBus();
 
 export default {
-    name: "MapDelete",
-
+    name: "DeleteManyMap",
     props: {
+        selectedMaps: Array,
+        isDeleteChangeMany: Number,
+    },
+    components: {
+
     },
     data() {
         return {
-            contentSelected: {
-                id: '',
-                content_type: '',
-                content_data: null,
-                is_delete: null,
-                creator_name: null,
-                updater_name: null,
-            },
-            dataSubmit: {
-                is_delete: '',
-            }
+            contents: null,
         }
     },
     mounted() {
-        onEvent('selectSimpleContentDelete', (contentSelected) => {
-            this.contentSelected = contentSelected;
+        onEvent('selectManyContent', (contents) => {
+            this.contents = contents;
         });
     },
     methods: {
-        deleteBook: async function () {
+        changeIsDeleteMany: async function () {
+            const selectedMapsArray = Object.values(this.selectedMaps);
+            var data = {
+                ids_content: selectedMapsArray,
+                is_delete: this.isDeleteChangeMany
+            }
             try {
-                if (this.contentSelected.is_delete == 0) this.dataSubmit.is_delete = 1;
-                else this.dataSubmit.is_delete = 0;
-                const { messages } = await UserRequest.post('content/delete-content/' + this.contentSelected.id, this.dataSubmit, true);
+                const { messages } = await UserRequest.post('content/delete-many-content', data, true);
                 emitEvent('eventSuccess', messages[0]);
+                emitEvent('eventRegetMaps', '');
                 const closeButton = this.$refs.closeButton;
                 closeButton.click();
-                emitEvent('eventUpdateIsDeleteContent', this.contentSelected.id);
             }
             catch (error) {
                 if (error.messages) emitEvent('eventError', error.messages[0]);
             }
         },
-        closeModal: function () {
-            if (event.target.classList.contains('modal')) {
-                this.resetData();
-            }
-        },
-        resetData: function () {
-            this.contentSelected = {
-                id: '',
-                content_type: '',
-                content_data: null,
-                is_delete: null,
-                creator_name: null,
-                updater_name: null,
-            };
-        },
     }
-
 }
 </script>
 
@@ -153,6 +139,10 @@ export default {
     color: var(--user-color);
 }
 
+.contentType {
+    color: var(--blue-color);
+}
+
 .colorImage {
     color: var(--blue-color);
 }
@@ -166,6 +156,7 @@ export default {
         max-width: 400px;
         margin: 10px auto;
         font-size: 12px;
+        ;
     }
 
     .modal-header {
@@ -186,6 +177,7 @@ export default {
         max-width: 350px;
         margin: 10px auto;
         font-size: 11px;
+        ;
     }
 
     .modal-header {
@@ -210,6 +202,7 @@ export default {
         max-width: 320px;
         margin: 10px auto;
         font-size: 9px;
+        ;
     }
 
     .modal-header {
@@ -235,6 +228,10 @@ export default {
     .imgInTable img {
         max-width: 90px;
     }
+
+    .pl-6 {
+        padding-left: 12px;
+    }
 }
 
 @media screen and (min-width: 425px) and (max-width: 575px) {
@@ -242,6 +239,7 @@ export default {
         max-width: 275px;
         margin: 10px auto;
         font-size: 9px;
+        ;
     }
 
     .modal-header,
@@ -268,6 +266,10 @@ export default {
     .imgInTable img {
         max-width: 80px;
     }
+
+    .pl-6 {
+        padding-left: 10px;
+    }
 }
 
 @media screen and (min-width: 375px) and (max-width: 424px) {
@@ -275,6 +277,7 @@ export default {
         max-width: 180px;
         margin: 10px auto;
         font-size: 7px;
+        ;
     }
 
     .modal-header,
@@ -306,8 +309,12 @@ export default {
         margin-left: 6px !important;
     }
 
-    .mb-2 {
-        margin-bottom: 0.5px !important
+    .mt-2 {
+        margin-top: 0.5px !important
+    }
+
+    .pl-6 {
+        padding-left: 5px;
     }
 }
 </style>

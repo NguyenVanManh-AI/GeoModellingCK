@@ -2,45 +2,40 @@
     <div>
         <div id="big">
             <div class="bigContainer">
-                <div class="modal fade" id="updateContent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="modal-update-map" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel"><strong><i
                                             class="fa-solid fa-envelope-open-text"></i>
-                                        Update Content Channel</strong></h5>
+                                        Add Map</strong></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true" class="text-danger"><i
                                             class="fa-regular fa-circle-xmark"></i></span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form @submit.prevent="updateContent()">
-                                    <ul class="nav nav-tabs mainTab">
-                                        <li @click="isTab = 'text'" class="nav-item  font-weight-bold">
-                                            <a :class="{ 'nav-link': true, 'colorText': true, 'active': isTab == 'text' }"
-                                                aria-current="page" href="#"><i class="fa-solid fa-quote-left"></i> Text</a>
-                                        </li>
-                                        <li @click="isTab = 'image'" class="nav-item font-weight-bold">
-                                            <a :class="{ 'nav-link': true, 'colorImage': true, 'active': isTab == 'image' }"
-                                                href="#"><i class="fa-solid fa-image"></i> Image</a>
-                                        </li>
-                                    </ul>
-                                    <div class="loadContent" v-if="isTab == 'text'">
-                                        <div class="col-12 mx-auto">
-                                            <div class="input-form">
-                                                <textarea v-model="dataText.content_data.text" type="text" required
-                                                    class="form-control" id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp" placeholder="Content Text">
-                                            </textarea>
-                                            </div>
+                                <form @submit.prevent="addMap()">
+                                    <legend>Import Image Pandora 360</legend>
+                                    <div class="form-group row">
+                                        <label for="inputPassword" class="col-sm-2 col-form-label">Address</label>
+                                        <div class="col-sm-10">
+                                            <input required v-model="submitAdress" type="text" class="form-control"
+                                                id="inputPassword" placeholder="Address">
                                         </div>
                                     </div>
-                                    <div class="loadContent" v-if="isTab == 'image'">
+                                    <div class="form-group row">
+                                        <label for="inputPassword" class="col-sm-2 col-form-label">Coordinates</label>
+                                        <div class="col-sm-10">
+                                            <input required v-model="submitCoordinates" type="text" class="form-control"
+                                                id="inputPassword" placeholder="Coordinates">
+                                        </div>
+                                    </div>
+                                    <div class="loadContent">
                                         <div class="minAvatar">
-                                            <input required class="input-file" type="file" @change="previewImage"
-                                                accept="image/*" ref="fileInput" />
+                                            <input id="imageInput" required class="input-file" type="file"
+                                                @change="previewImage" accept="image/*" ref="fileInput" />
                                             <span class="iconClound" v-if="previewImageSrc == null"><i
                                                     class="fa-solid fa-cloud-arrow-up"></i></span>
                                             <div v-if="previewImageSrc" class="box-preview">
@@ -50,9 +45,80 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="mt-4 btn-pers" id="login_button"><i
-                                            class="fa-solid fa-floppy-disk"></i> Update</button>
                                 </form>
+                                <br>
+                                <section class="settings">
+                                    <div class="form-group row">
+                                        <label for="inputPassword" class="col-sm-2 col-form-label">Cube Rotation</label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control" id="cubeRotation" type="number" min="0"
+                                                max="359" v-model="rotation" @change="loadImage" />
+                                        </div>
+                                    </div>
+                                    <fieldset title="The resampling algorithm to use when generating the cubemap.">
+                                        <legend>Interpolation type</legend>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <label>
+                                                    <input type="radio" name="interpolation" value="lanczos"
+                                                        v-model="interpolation" @change="loadImage" /> Lanczos (best but
+                                                    slower)
+                                                </label>
+                                            </div>
+                                            <div class="col-4">
+                                                <label>
+                                                    <input type="radio" name="interpolation" value="cubic"
+                                                        v-model="interpolation" @change="loadImage" /> Cubic (sharper
+                                                    details)
+                                                </label>
+                                            </div>
+                                            <div class="col-4">
+                                                <label>
+                                                    <input type="radio" name="interpolation" value="linear"
+                                                        v-model="interpolation" @change="loadImage" /> Linear (softer
+                                                    details)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Output format</legend>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label>
+                                                    <input type="radio" name="format" value="png" v-model="format"
+                                                        @change="loadImage" /> PNG
+                                                </label>
+                                            </div>
+                                            <div class="col-2">
+                                                <label>
+                                                    <input type="radio" name="format" value="jpg" v-model="format"
+                                                        @change="loadImage" /> JPEG
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </section>
+                                <section>
+                                    <p v-if="!generating && faces.length > 0">Click each cube face to save it to your computer.</p>
+                                    <flower-spinner v-if="generating" class="loading-component"
+                                        :animation-duration="2000" :size="50" color="#06C755" />
+                                    <p class="text-center" v-if="generating"><strong>Generating...</strong></p>
+                                    <div v-if="!generating && faces.length > 0" id="cubemap">
+                                        <div id="container-output">
+                                            <output id="faces">
+                                                <a v-for="(face, index) in faces" :key="index"
+                                                    :style="{ position: 'absolute', left: facePositions[face.faceName].x * 200 + 'px', top: facePositions[face.faceName].y * 200 + 'px' }"
+                                                    :href="face.url" :download="face.download">
+                                                    <img :src="face.preview" :title="face.faceName" />
+                                                </a>
+                                            </output>
+                                        </div>
+                                    </div>
+                                    <button @click="uploadImages" type="submit"
+                                        class="mt-4 btn-pers" id="login_button"><i class="fa-solid fa-floppy-disk"></i>
+                                        Save</button>
+                                </section>
                             </div>
                         </div>
                     </div>
@@ -65,22 +131,19 @@
 <script>
 import useEventBus from '@/composables/useEventBus'
 import UserRequest from '@/restful/UserRequest';
-const { onEvent, emitEvent } = useEventBus();
+const { emitEvent, onEvent } = useEventBus();
+import { ref } from 'vue';
+import { FlowerSpinner } from 'epic-spinners';
 
 export default {
-    name: "MapUpdate",
+    name: "MapAdd",
+    components: {
+        FlowerSpinner
+    },
     data() {
         return {
             isTab: 'text',
             previewImageSrc: null,
-            contentSelected: {
-                id: '',
-                content_type: '',
-                content_data: null,
-                is_delete: null,
-                creator_name: null,
-                updater_name: null,
-            },
             member: {
                 name: null,
                 email: null,
@@ -103,23 +166,38 @@ export default {
                 content_type: 'image',
                 image_content: null,
             },
+            facePositions: {
+                pz: { x: 1, y: 1 },
+                nz: { x: 3, y: 1 },
+                px: { x: 2, y: 1 },
+                nx: { x: 0, y: 1 },
+                py: { x: 1, y: 0 },
+                ny: { x: 1, y: 2 }
+            },
+
         }
     },
     mounted() {
-        onEvent('selectSimpleContent', (contentSelected) => {
-            this.contentSelected = contentSelected;
-            this.isTab = contentSelected.content_type;
-            switch (contentSelected.content_type) {
-                case 'text':
-                    this.dataText.content_data.text = contentSelected.content_data.text;
-                    break;
-                case 'image':
-                    this.previewImageSrc = contentSelected.content_data.originalContentUrl;
-            }
+        onEvent('selectSimpleMap', (mapSelected) => {
+            console.log(this.mapSelected);
+            this.previewImageSrc = mapSelected.imagefull;
         });
     },
+    computed: {
+        orderedFaces() {
+            // Sắp xếp các mặt theo vị trí x và y
+            return this.faces.slice().sort((a, b) => {
+                const posA = this.facePositions[a.faceName];
+                const posB = this.facePositions[b.faceName];
+                if (posA.y === posB.y) {
+                    return posA.x - posB.x;
+                }
+                return posA.y - posB.y;
+            });
+        }
+    },
     methods: {
-        updateContent: async function () {
+        addMap: async function () {
             try {
                 var dataSubmit = null;
                 if (this.isTab == 'text') dataSubmit = this.dataText;
@@ -128,13 +206,13 @@ export default {
                     dataSubmit.append('content_type', 'image');
                     dataSubmit.append('image_content', this.dataImage.image_content);
                 }
-                const { messages } = await UserRequest.post('content/update/' + this.contentSelected.id, dataSubmit, true);
+                const { messages } = await UserRequest.post('content/add', dataSubmit, true);
                 emitEvent('eventSuccess', messages[0]);
                 for (let key in this.errors) this.errors[key] = null;
-                var closePW = window.document.getElementById('updateContent');
+                var closePW = window.document.getElementById('addMap');
                 closePW.click();
                 this.resetData();
-                emitEvent('eventRegetcontents', '');
+                emitEvent('eventRegetMaps', '');
             }
             catch (error) {
                 if (error.errors) this.errors = error.errors;
@@ -165,6 +243,7 @@ export default {
                 };
                 reader.readAsDataURL(file);
             } else this.removeFile();
+            this.loadImage(event);
         },
         removeFile: function () {
             this.previewImageSrc = null;
@@ -172,10 +251,189 @@ export default {
             this.$refs.fileInput.value = '';
         },
     },
+    setup() {
+        const rotation = ref(180);
+        const interpolation = ref('lanczos');
+        const format = ref('png');
+        const generating = ref(false);
+        const faces = ref([]);
+        const submitAdress = ref('')
+        const submitCoordinates = ref('');
+        const idMap = ref(0);
+
+        onEvent('selectSimpleMap', (mapSelected) => {
+            idMap.value = mapSelected.id;
+            submitAdress.value = mapSelected.address;
+            submitCoordinates.value = JSON.stringify(mapSelected.coordinates);
+        });
+        
+        var fullfile;
+        const loadImage = (event) => {
+            const file = event.target.files[0];
+            fullfile = file;
+
+            if (!file) return;
+
+            const img = new Image();
+            img.src = URL.createObjectURL(file);
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+                processImage(data);
+            };
+        };
+
+        const processImage = (data) => {
+            faces.value = [];
+            generating.value = true;
+
+            const facePositions = {
+                pz: { x: 1, y: 1 },
+                nz: { x: 3, y: 1 },
+                px: { x: 2, y: 1 },
+                nx: { x: 0, y: 1 },
+                py: { x: 1, y: 0 },
+                ny: { x: 1, y: 2 }
+            };
+
+            const options = {
+                data,
+                rotation: Math.PI * rotation.value / 180,
+                interpolation: interpolation.value
+            };
+
+            Object.entries(facePositions).forEach(([faceName, position]) => {
+                renderFace(data, faceName, position, options);
+            });
+        };
+
+        const renderFace = (data, faceName, position, options) => {
+            const worker = new Worker('convert.js');
+
+            worker.onmessage = ({ data: imageData }) => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = imageData.width;
+                canvas.height = imageData.height;
+                ctx.putImageData(imageData, 0, 0);
+
+                canvas.toBlob((blob) => {
+                    const url = URL.createObjectURL(blob);
+                    faces.value.push({
+                        faceName,
+                        preview: url,
+                        download: `${faceName}.${format.value}`,
+                        url
+                    });
+
+                    if (faces.value.length === 6) {
+                        generating.value = false;
+                    }
+                }, `image/${format.value}`);
+            };
+
+            worker.postMessage({ ...options, face: faceName });
+        };
+        const uploadImages = () => {
+
+            const formData = new FormData();
+            const promises = [];
+
+            if (faces.value.length == 6) {
+                faces.value.forEach(face => {
+                    promises.push(
+                        fetch(face.url)
+                            .then(response => response.blob())
+                            .then(blob => {
+                                formData.append(face.faceName, blob);
+                                console.log(blob);
+                            })
+                            .catch(error => {
+                                console.error('Error fetching image:', error);
+                            })
+                    );
+                });
+                formData.append('imagefull', fullfile);
+            }
+
+            console.log(formData);
+            emitEvent('eventLoading', true);
+            let closePW;
+            Promise.all(promises)
+                .then(() => {
+                    formData.append('address', submitAdress.value);
+                    formData.append('coordinates', submitCoordinates.value);
+
+                    fetch('http://localhost:8000/api/map/update/'+idMap.value, {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Error updating map.');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            emitEvent('eventLoading', false);
+                            emitEvent('eventSuccess', "Map updated successfully !");
+                            console.log(data);
+                            closePW = window.document.getElementById('modal-update-map');
+                            closePW.click();
+                            emitEvent('eventRegetMaps', '');
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            emitEvent("eventError", "Map updated fail !");
+                        });
+                });
+        };
+        return {
+            rotation,
+            interpolation,
+            format,
+            generating,
+            faces,
+            loadImage,
+            uploadImages,
+            submitAdress,
+            submitCoordinates
+        };
+    },
+    watch: {
+
+    },
 }
 </script>
 
 <style scoped>
+#container-output {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+#faces {
+    width: 800px;
+    height: 600px;
+    position: relative;
+}
+
+#faces img {
+    width: 200px;
+    height: 200px;
+}
+
+.loading-component {
+    margin-top: 0px !important;
+}
+
 .loadContent {
     border: 1px solid;
     border-color: #dee2e6;
@@ -262,7 +520,7 @@ export default {
     position: relative;
     text-align: center;
     width: 100%;
-    height: 170px;
+    height: 320px;
     border-radius: 6px;
     cursor: pointer;
     display: flex;
@@ -272,8 +530,8 @@ export default {
 }
 
 .minAvatar .preview {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 300px;
     object-fit: cover;
     border-radius: 6px;
     cursor: default;
@@ -291,7 +549,7 @@ export default {
     position: absolute;
     cursor: pointer;
     width: 100%;
-    height: 150px;
+    height: 300px;
 }
 
 .box-preview {
@@ -303,6 +561,7 @@ export default {
     font-size: 60px;
     color: var(--user-color);
 }
+
 img.close {
     position: absolute;
     top: -6px;
@@ -310,4 +569,3 @@ img.close {
     width: 16px;
 }
 </style>
-

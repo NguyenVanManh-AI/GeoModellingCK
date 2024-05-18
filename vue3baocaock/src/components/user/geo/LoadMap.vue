@@ -9,17 +9,7 @@
     </select>
   </div>
   </div>
-  <div>
-    <label>
-      Upload a panoramic image:
-      <input id="imageInput" type="file" accept="image/*" @change="handleFileChange">
-    </label>
-    <div id="faces"></div>
-    <div id="generating" style="visibility: hidden;">Generating...</div>
-  </div>
-  <div ref="threejsContainer" class="threejs-container"></div>
-  </div>
-
+  <div ref="threejsContainer" class="threejs-container"></div></div>
 </template>
 
 <script>
