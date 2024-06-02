@@ -5,7 +5,6 @@ export default {
 	API_URL: 'https://4dc5-2405-4802-95f1-da5b-b0a5-b9d7-7e40-9350.ngrok-free.app/api/',
 	URL: 'https://4dc5-2405-4802-95f1-da5b-b0a5-b9d7-7e40-9350.ngrok-free.app/',
 	API_Model: 'https://4dc5-2405-4802-95f1-da5b-b0a5-b9d7-7e40-9350.ngrok-free.app/'
-	https://4dc5-2405-4802-95f1-da5b-b0a5-b9d7-7e40-9350.ngrok-free.app
 }
 
 // php artisan serve --host=127.0.0.1 --port=8089 // localhost 
