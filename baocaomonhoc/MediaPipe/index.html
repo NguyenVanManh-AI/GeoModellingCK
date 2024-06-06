@@ -11,7 +11,9 @@
   <title>Objects Control</title>
   <link rel="shortcut icon" href="https://threejs.org/files/favicon.ico" media="(prefers-color-scheme: light)">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -39,7 +41,7 @@
     var rotating = false;
     var scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
-    var camera ;
+    var camera;
     var renderer;
 
     var loadedObject;
@@ -90,21 +92,21 @@
 
       // scene
       scene = new THREE.Scene();
-      var ambient = new THREE.AmbientLight( 0x101030 );
-      scene.add( ambient );
-      var directionalLight = new THREE.DirectionalLight( 0xffeedd );
-      directionalLight.position.set( 0, 0, 1 ).normalize();
-      scene.add( directionalLight );
+      var ambient = new THREE.AmbientLight(0x101030);
+      scene.add(ambient);
+      var directionalLight = new THREE.DirectionalLight(0xffeedd);
+      directionalLight.position.set(0, 0, 1).normalize();
+      scene.add(directionalLight);
       // model
       var loader = new THREE.OBJMTLLoader();
-      loader.addEventListener( 'load', function ( event ) {
+      loader.addEventListener('load', function (event) {
         var object = event.content;
         loadedObject = object;
-        scene.add( object );
+        scene.add(object);
       });
 
       var listMTL = ["bugatti", "IronMan", "Tree1", "Room", "Cottage", "Bird", "Duck", "Aircraft"];
-      if(listMTL.includes(objectSelect)) loader.load( 'obj/'+objectSelect+'.obj', 'obj/'+objectSelect+'.mtl' );
+      if (listMTL.includes(objectSelect)) loader.load('obj/' + objectSelect + '.obj', 'obj/' + objectSelect + '.mtl');
       else loader.load('obj/' + objectSelect + '.obj');
       //
       renderer = new THREE.WebGLRenderer();
@@ -349,7 +351,7 @@
     const socket = new WebSocket('ws://localhost:8765');
 
     socket.addEventListener('message', function (event) {
-      document.getElementById('name_action_detect').value  = event.data;
+      document.getElementById('name_action_detect').value = event.data;
       console.log(event.data);
       switch (event.data) {
         case 'moveLeft':
@@ -408,12 +410,18 @@
     <div id="container-box"></div>
     <div id="list_btn" class="d-flex justify-content-end">
       <div>
-        <button type="button" class="m-1 btn btn-outline-primary" id="moveLeftButton"><i class="fa-solid fa-angles-left"></i> Move Left</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="moveRightButton"><i class="fa-solid fa-angles-right"></i> Move Right</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="moveTopButton"><i class="fa-solid fa-angles-up"></i> Move Top</button>
-        <button type="button" class="m-1 btn btn-outline-primary" id="moveBottomButton"><i class="fa-solid fa-angles-down"></i> Move Bottom</button>
-        <button type="button" class="m-1 btn btn-outline-info" id="zoomInButton"><i class="fa-solid fa-minimize"></i> Zoom In</button>
-        <button type="button" class="m-1 btn btn-outline-info" id="zoomOutButton"><i class="fa-solid fa-arrows-up-down-left-right"></i> Zoom Out</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveLeftButton"><i
+            class="fa-solid fa-angles-left"></i> Move Left</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveRightButton"><i
+            class="fa-solid fa-angles-right"></i> Move Right</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveTopButton"><i
+            class="fa-solid fa-angles-up"></i> Move Top</button>
+        <button type="button" class="m-1 btn btn-outline-primary" id="moveBottomButton"><i
+            class="fa-solid fa-angles-down"></i> Move Bottom</button>
+        <button type="button" class="m-1 btn btn-outline-info" id="zoomInButton"><i class="fa-solid fa-minimize"></i>
+          Zoom In</button>
+        <button type="button" class="m-1 btn btn-outline-info" id="zoomOutButton"><i
+            class="fa-solid fa-arrows-up-down-left-right"></i> Zoom Out</button>
         <button type="button" class="m-1 btn btn-outline-success" id="rotateXCButton">Rotate XC</button>
         <button type="button" class="m-1 btn btn-outline-success" id="rotateXNButton">Rotate XN</button>
         <button type="button" class="m-1 btn btn-outline-success" id="rotateYCButton">Rotate YC</button>
@@ -422,6 +430,129 @@
         <button type="button" class="m-1 btn btn-outline-success" id="rotateZNButton">Rotate ZN</button>
         <button type="button" class="m-1 btn btn-outline-warning" id="moveFarButton">Move Far</button>
         <button type="button" class="m-1 btn btn-outline-warning" id="moveNearButton">Move Near</button>
+        <div id="user_manual">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            User Manual 
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">User Manual</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container-video">
+                    <div class="item-video">
+                      <p><strong>1.	Move Left</strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/moveLeft.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Hành động tương tự với việc nắm một vật thể ngang ngực và bắt đầu kéo nó từ phải sang trái bằng tay phải.</p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>2.	Move Right </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/moveRight.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Hành động tương tự với việc nắm một vật thể ngang ngực và bắt đầu kéo nó từ trái sang phải bằng tay phải. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>3.	Move Top </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/moveTop.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Hành động tương tự với việc nắm một vật thể trước mặt và bắt đầu kéo nó từ dưới lên trên bằng tay phải. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>4.	Move Bottom </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/moveBottom.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Hành động tương tự với việc nắm một vật thể trước mặt và bắt đầu kéo nó từ trên xuống dưới bằng tay phải. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>5.	Zoom In </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/zoomIn.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Hành động tương tự với việc 2 bàn tay đang nắm một vật thể đối diện trước ngực và kéo căng ra 2 bên. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>6.	Zoom Out </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/zoomOut.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Hành động tương tự với việc 2 lòng bàn tay mở ra, đối diện nhau, đặt song song với cơ thể, vuông góc với mặt đất sau đó ép chặt lại đối diện trước ngược.  </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>7.	Rotate XC </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/rotateXC.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Duỗi thẳng tay phải ra song song với mặt đất và vuông góc với thân người, sau đó hất tay lên phía trên giống như đang dùng tay để lật một vật. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>8.	Rotate XN </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/rotateXN.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Duỗi thẳng tay ra và hợp mới mặt đất một góc khoảng 135 độ, sau đó gập tay xuống như đang nhấn một vật xuống. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>9.	Rotate YC </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/rotateYC.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Sử dụng tay phải, đặt cánh tay phải song song với thân người, lòng bàn tay mở ra và đưa cánh tay từ phải sáng trái. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>10.	Rotate YN </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/rotateYN.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Sử dụng tay phải, đặt cánh tay phải song song với thân người, lòng bàn tay mở ra và đưa cánh tay từ trái sang phải </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>11.	Rotate ZC </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/rotateZC.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Sử dụng tay phải, lòng bàn tay mở ra, đưa tay phải từ góc dưới bên phải lên góc trên bên trái. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>12.	Rotate ZN </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/rotateZN.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Sử dụng tay phải, lòng bàn tay mở ra, đưa tay phải từ góc trên bên trái xuống góc dưới bên phải. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>13.	Move Far </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/moveFar.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Sử dụng tay phải, để lòng bàn tay mở ra và song song mới thân người, sau đó đẩy lòng bàn tay tới trước như đang đẩy một vật thể ra xa. </p>
+                    </div>
+                    <div class="item-video">
+                      <p><strong>14.	Move Near </strong></p>
+                        <video class="myVideo" controls>
+                          <source src="./user_manual/moveNear.mp4" type="video/mp4">
+                      </video>
+                      <p>Mô tả : Đưa bàn tay tới phía trước, chụm lại và kéo bàn tay lui trước ngực như đang kéo một vật thể tới gần hơn phía trước ngực. </p>
+                    </div>
+                  </div>
+                  </div>
+                  <script>
+                    document.querySelectorAll('myVideo').playbackRate = 0.75;
+                </script>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div id="group-div" class="col-12">
